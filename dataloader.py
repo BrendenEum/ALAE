@@ -28,7 +28,7 @@ cpu = torch.device('cpu')
 
 
 class TFRecordsDataset:
-    def __init__(self, cfg, logger, rank=0, world_size=1, buffer_size_mb=200, channels=3, seed=None, train=True, needs_labels=False):
+    def __init__(self, cfg, logger, rank=0, world_size=1, buffer_size_mb=200, channels=1, seed=None, train=True, needs_labels=False):
         self.cfg = cfg
         self.logger = logger
         self.rank = rank
