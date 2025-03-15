@@ -20,5 +20,18 @@ I had to take out torch and torchvision from requirements. This is so we can ins
 conda install pytorch==1.8.0 torchvision==0.9.0 torchaudio==0.8.0 cudatoolkit=11.1 -c pytorch -c conda-forge
 ```
 
+To download the pre-trained models and try out the demo:
+
+```bash
+python training_artifacts/download_all.py
+python interactive_demo.py -c celeba-hq256
+```
 
 
+## Prepare dataset
+
+dataset_preparation/prepare_evox.py was written using ChatGPT. Run it from the root directory.
+
+```bash
+python -m dataset_preparation.prepare_evox
+```

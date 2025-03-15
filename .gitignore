@@ -2,6 +2,7 @@
 *.ckpt
 *.mat
 *.pth
+*.png
 
 __pycache__/
 .idea/
