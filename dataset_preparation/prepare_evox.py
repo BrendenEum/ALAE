@@ -15,50 +15,59 @@ def prepare_evox(cfg, logger, train=True):
     print(f"Saving TFRecords to: {cfg.DATASET.PATH if train else cfg.DATASET.PATH_TEST}")
 
     # Get list of PNG files
-    image_folder = 'data/datasets/evox/cars'  # Replace this with the correct folder
+    if train:
+        image_folder = os.path.dirname(cfg.DATASET.PATH)
+    else:
+        image_folder = os.path.dirname(cfg.DATASET.PATH_TEST)
     image_files = [f for f in os.listdir(image_folder) if f.endswith('.png')]
     
     # Shuffle the list of image files
+    random.seed(0)
     random.shuffle(image_files)
     count = len(image_files)
     print(f"Total images: {count}")
-    
-    # Function to resize images to desired size (e.g., 128x128 or 256x256)
+
+    # Number of folds
+    folds = cfg.DATASET.PART_COUNT
+    evox_folds = [[] for _ in range(folds)]
+
+    # Evenly distribute images into folds
+    count_per_fold = count // folds
+    for i in range(folds):
+        evox_folds[i] = image_files[i * count_per_fold: (i + 1) * count_per_fold]
+
+    # Resize function
     def resize_image(image, size=(128, 128)):
         return np.array(image.resize(size, Image.ANTIALIAS))
 
-    images = []
+    # Process and save each fold
+    for i in range(folds):
+        images = []
+        for img_file in tqdm.tqdm(evox_folds[i], desc=f"Processing fold {i+1}/{folds}"):
+            img_path = os.path.join(image_folder, img_file)
+            try:
+                image = Image.open(img_path).convert('L')  # Convert to grayscale
+                image_resized = resize_image(image, size=(128, 128))  # Resize
+                images.append((img_file, image_resized[np.newaxis, ...]))  # Add an extra channel
+            except Exception as e:
+                print(f"Skipping image {img_file} due to error: {e}")
 
-    # Process images
-    for img_file in tqdm.tqdm(image_files):
-        img_path = os.path.join(image_folder, img_file)
-        
-        try:
-            image = Image.open(img_path).convert('L')  # 'L' mode for grayscale
-            image_resized = resize_image(image, size=(128, 128))  # Resize to desired size (128x128)
-            #if len(image_resized.shape) == 2:  image_resized = np.expand_dims(image_resized, axis=-1)  # If greyscale, convert (H, W) → (H, W, 1)
-            images.append(image_resized[np.newaxis, ...])  # Add an extra dimension for channel (1, height, width)
-        except Exception as e:
-            print(f"Skipping image {img_file} due to error: {e}")
+        # Write fold to TFRecord
+        tfr_opt = tf.io.TFRecordOptions(compression_type="")
+        part_path = cfg.DATASET.PATH % (cfg.DATASET.MAX_RESOLUTION_LEVEL, i) if train else cfg.DATASET.PATH_TEST % (cfg.DATASET.MAX_RESOLUTION_LEVEL, i)
+        tfr_writer = tf.io.TFRecordWriter(part_path, tfr_opt)
 
-    # Prepare TFRecord Writer
-    tfr_opt = tf.io.TFRecordOptions(compression_type="GZIP")
-    tfr_writer = tf.io.TFRecordWriter(cfg.DATASET.PATH if train else cfg.DATASET.PATH_TEST, tfr_opt)
+        for img_file, image in images:
+            label = str(img_file.split('_')[1])  # Extract brand from filename and use as a label
+            ex = tf.train.Example(features=tf.train.Features(feature={
+                'shape': tf.train.Feature(int64_list=tf.train.Int64List(value=image.shape)),
+                'label': tf.train.Feature(bytes_list=tf.train.BytesList(value=[label.encode()])),
+                'data': tf.train.Feature(bytes_list=tf.train.BytesList(value=[image.tobytes()]))  
+            }))
+            tfr_writer.write(ex.SerializeToString())
 
-    for idx, image in enumerate(images):
-        # Example: Assign labels based on filename or predefined mapping
-        label = idx  # Assign unique integer labels (modify this logic if needed)
-        
-        # Example TFRecord entry with labels
-        ex = tf.train.Example(features=tf.train.Features(feature={
-            'shape': tf.train.Feature(int64_list=tf.train.Int64List(value=image.shape)),
-            'data': tf.train.Feature(bytes_list=tf.train.BytesList(value=[image.tobytes()]))  # Save image data
-        }))
-
-        tfr_writer.write(ex.SerializeToString())
-
-    tfr_writer.close()
-
+        tfr_writer.close()
+        print(f"Fold {i+1} saved to {part_path}")
 
 def run():
     import argparse
@@ -95,9 +104,9 @@ def run():
     logger.addHandler(ch)
     logger.info("Running with config:\n{}".format(cfg))
 
-    # Prepare the dataset (train)
+    # Prepare dataset for both training and testing
     prepare_evox(cfg, logger, train=True)
-
+    prepare_evox(cfg, logger, train=False)
 
 if __name__ == '__main__':
     run()
