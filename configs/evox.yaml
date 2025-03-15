@@ -2,13 +2,13 @@
 
 NAME: evox
 DATASET:
-  PART_COUNT: 4
-  SIZE: 758260
-  FFHQ_SOURCE: data/datasets/evox/cars.tfrecords
-  PATH: data/datasets/evox/cars.tfrecords
+  PART_COUNT: 1 # how many times to split up the dataset (for parallelizing?)
+  SIZE: 11647
+  FFHQ_SOURCE: data/datasets/evox/cars-r%02d.tfrecords.%03d
+  PATH: data/datasets/evox/cars-r%02d.tfrecords.%03d
   MAX_RESOLUTION_LEVEL: 7
 
-  SAMPLES_PATH: dataset_samples/cars
+  SAMPLES_PATH: no_path #dataset_samples/cars
   STYLE_MIX_PATH: style_mixing/test_images/set_cars
 MODEL:
   LATENT_SPACE_SIZE: 512

@@ -30,8 +30,17 @@ python interactive_demo.py -c celeba-hq256
 
 ## Prepare dataset
 
-dataset_preparation/prepare_evox.py was written using ChatGPT. Run it from the root directory.
+dataset_preparation/prepare_evox.py was written using ChatGPT. Run it from the root directory. It takes the raw .png images from data/datasets/evox/cars, resizes them, converts them to 128x128, then saves them in a tfrecords file.
+
+Note: You can add labels later in dataset_preparation/prepare_evox.py when you write images to TFrecord.
 
 ```bash
 python -m dataset_preparation.prepare_evox
+```
+
+
+## Train network
+
+```bash
+python train_alae.py -c evox
 ```

@@ -34,24 +34,27 @@ def prepare_evox(cfg, logger, train=True):
         img_path = os.path.join(image_folder, img_file)
         
         try:
-            image = Image.open(img_path).convert('L')  # Convert to grayscale ('L' mode for grayscale)
+            image = Image.open(img_path).convert('L')  # 'L' mode for grayscale
             image_resized = resize_image(image, size=(128, 128))  # Resize to desired size (128x128)
+            #if len(image_resized.shape) == 2:  image_resized = np.expand_dims(image_resized, axis=-1)  # If greyscale, convert (H, W) → (H, W, 1)
             images.append(image_resized[np.newaxis, ...])  # Add an extra dimension for channel (1, height, width)
         except Exception as e:
             print(f"Skipping image {img_file} due to error: {e}")
 
     # Prepare TFRecord Writer
     tfr_opt = tf.io.TFRecordOptions(compression_type="GZIP")
-    #tfr_opt = tf.io.TFRecordOptions(tf.io.TFRecordCompressionType.NONE)
     tfr_writer = tf.io.TFRecordWriter(cfg.DATASET.PATH if train else cfg.DATASET.PATH_TEST, tfr_opt)
 
-    # Write images to TFRecord
-    for image in images:
-        # Example features
+    for idx, image in enumerate(images):
+        # Example: Assign labels based on filename or predefined mapping
+        label = idx  # Assign unique integer labels (modify this logic if needed)
+        
+        # Example TFRecord entry with labels
         ex = tf.train.Example(features=tf.train.Features(feature={
             'shape': tf.train.Feature(int64_list=tf.train.Int64List(value=image.shape)),
-            'data': tf.train.Feature(bytes_list=tf.train.BytesList(value=[image.tostring()]))
+            'data': tf.train.Feature(bytes_list=tf.train.BytesList(value=[image.tobytes()]))  # Save image data
         }))
+
         tfr_writer.write(ex.SerializeToString())
 
     tfr_writer.close()

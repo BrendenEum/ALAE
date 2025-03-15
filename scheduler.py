@@ -13,7 +13,8 @@ class WarmupMultiStepLR(torch.optim.lr_scheduler._LRScheduler):
         warmup_iters=1,
         last_epoch=-1,
         reference_batch_size=128,
-        lr=[]
+        lr=[],
+        verbose=False
     ):
         if not list(milestones) == sorted(milestones):
             raise ValueError(
@@ -27,6 +28,7 @@ class WarmupMultiStepLR(torch.optim.lr_scheduler._LRScheduler):
         self.batch_size = 1
         self.lod = 0
         self.reference_batch_size = reference_batch_size
+        self.verbose = verbose
 
         self.optimizer = optimizer
         self.base_lrs = []
