@@ -3,6 +3,7 @@
 *.mat
 *.pth
 *.png
+*.tfrecords
 
 __pycache__/
 .idea/

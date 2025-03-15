@@ -12,6 +12,7 @@ def prepare_evox(cfg, logger, train=True):
     # Define directory
     directory = os.path.dirname(cfg.DATASET.PATH) if train else os.path.dirname(cfg.DATASET.PATH_TEST)
     os.makedirs(directory, exist_ok=True)
+    print(f"Saving TFRecords to: {cfg.DATASET.PATH if train else cfg.DATASET.PATH_TEST}")
 
     # Get list of PNG files
     image_folder = 'data/datasets/evox/cars'  # Replace this with the correct folder
