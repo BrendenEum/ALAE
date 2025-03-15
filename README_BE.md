@@ -44,3 +44,10 @@ python -m dataset_preparation.prepare_evox
 ```bash
 python train_alae.py -c evox
 ```
+
+
+```bash
+cd C:\Users\Brend\OneDrive\Desktop\ALAE
+conda activate alae
+python train_alae.py -c evox
+```
