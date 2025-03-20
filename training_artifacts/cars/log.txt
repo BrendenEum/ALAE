@@ -1,0 +1,1264 @@
+2025-03-14 18:38:57,502 logger INFO: Namespace(config_file='evox', opts=[])
+2025-03-14 18:38:57,503 logger INFO: World size: 1
+2025-03-14 18:38:57,504 logger INFO: Loaded configuration file configs\evox.yaml
+2025-03-14 18:38:57,504 logger INFO: 
+ # Config for training ALAE on evox at resolution 256x256
+
+NAME: evox
+DATASET:
+  PART_COUNT: 4
+  SIZE: 758260
+  FFHQ_SOURCE: data/datasets/evox/cars.tfrecords
+  PATH: data/datasets/evox/cars.tfrecords
+  MAX_RESOLUTION_LEVEL: 7
+
+  SAMPLES_PATH: dataset_samples/cars
+  STYLE_MIX_PATH: style_mixing/test_images/set_cars
+MODEL:
+  LATENT_SPACE_SIZE: 512
+  LAYER_COUNT: 7
+  MAX_CHANNEL_COUNT: 512
+  START_CHANNEL_COUNT: 32
+  DLATENT_AVG_BETA: 0.995
+  MAPPING_LAYERS: 8
+OUTPUT_DIR: training_artifacts/cars
+TRAIN:
+  BASE_LEARNING_RATE: 0.002
+  EPOCHS_PER_LOD: 2
+  LEARNING_DECAY_RATE: 0.1
+  LEARNING_DECAY_STEPS: []
+  TRAIN_EPOCHS: 112
+  #                    4    8   16    32    64    128    256
+  LOD_2_BATCH_8GPU: [512, 256, 128,   64,   32,    32,    32,       32,        32]
+  LOD_2_BATCH_4GPU: [512, 256, 128,   64,   32,    32,    32,       32,        16]
+  LOD_2_BATCH_2GPU: [512, 256, 128,   64,   32,    32,    16]
+  LOD_2_BATCH_1GPU: [512, 256, 128,   64,   32,    16]
+
+  LEARNING_RATES: [0.0015,  0.0015,   0.0015,   0.0015,  0.0015,   0.0015,     0.002,     0.003,    0.003]
+
+2025-03-14 18:38:57,509 logger INFO: Running with config:
+DATASET:
+  FFHQ_SOURCE: data/datasets/evox/cars.tfrecords
+  FLIP_IMAGES: True
+  MAX_RESOLUTION_LEVEL: 7
+  PART_COUNT: 4
+  PART_COUNT_TEST: 1
+  PATH: data/datasets/evox/cars.tfrecords
+  PATH_TEST: 
+  SAMPLES_PATH: dataset_samples/cars
+  SIZE: 758260
+  SIZE_TEST: 10000
+  STYLE_MIX_PATH: style_mixing/test_images/set_cars
+MODEL:
+  CHANNELS: 3
+  DLATENT_AVG_BETA: 0.995
+  ENCODER: EncoderDefault
+  GENERATOR: GeneratorDefault
+  LATENT_SPACE_SIZE: 512
+  LAYER_COUNT: 7
+  MAPPING_D: MappingD
+  MAPPING_F: MappingF
+  MAPPING_LAYERS: 8
+  MAX_CHANNEL_COUNT: 512
+  START_CHANNEL_COUNT: 32
+  STYLE_MIXING_PROB: 0.9
+  TRUNCATIOM_CUTOFF: 8
+  TRUNCATIOM_PSI: 0.7
+  Z_REGRESSION: False
+NAME: evox
+OUTPUT_DIR: training_artifacts/cars
+PPL_CELEBA_ADJUSTMENT: False
+TRAIN:
+  ADAM_BETA_0: 0.0
+  ADAM_BETA_1: 0.99
+  BASE_LEARNING_RATE: 0.002
+  EPOCHS_PER_LOD: 2
+  LEARNING_DECAY_RATE: 0.1
+  LEARNING_DECAY_STEPS: []
+  LEARNING_RATES: [0.0015, 0.0015, 0.0015, 0.0015, 0.0015, 0.0015, 0.002, 0.003, 0.003]
+  LOD_2_BATCH_1GPU: [512, 256, 128, 64, 32, 16]
+  LOD_2_BATCH_2GPU: [512, 256, 128, 64, 32, 32, 16]
+  LOD_2_BATCH_4GPU: [512, 256, 128, 64, 32, 32, 32, 32, 16]
+  LOD_2_BATCH_8GPU: [512, 256, 128, 64, 32, 32, 32, 32, 32]
+  REPORT_FREQ: [100, 80, 60, 30, 20, 10, 10, 5, 5]
+  SNAPSHOT_FREQ: [300, 300, 300, 100, 50, 30, 20, 20, 10]
+  TRAIN_EPOCHS: 112
+2025-03-14 18:38:59,119 logger INFO: Trainable parameters generator:
+2025-03-14 18:38:59,119 logger INFO: Trainable parameters discriminator:
+2025-03-14 18:42:17,669 logger INFO: Namespace(config_file='evox', opts=[])
+2025-03-14 18:42:17,670 logger INFO: World size: 1
+2025-03-14 18:42:17,671 logger INFO: Loaded configuration file configs\evox.yaml
+2025-03-14 18:42:17,675 logger INFO: 
+ # Config for training ALAE on evox at resolution 256x256
+
+NAME: evox
+DATASET:
+  PART_COUNT: 4
+  SIZE: 758260
+  FFHQ_SOURCE: data/datasets/evox/cars.tfrecords
+  PATH: data/datasets/evox/cars.tfrecords
+  MAX_RESOLUTION_LEVEL: 7
+
+  SAMPLES_PATH: dataset_samples/cars
+  STYLE_MIX_PATH: style_mixing/test_images/set_cars
+MODEL:
+  LATENT_SPACE_SIZE: 512
+  LAYER_COUNT: 7
+  MAX_CHANNEL_COUNT: 512
+  START_CHANNEL_COUNT: 32
+  DLATENT_AVG_BETA: 0.995
+  MAPPING_LAYERS: 8
+OUTPUT_DIR: training_artifacts/cars
+TRAIN:
+  BASE_LEARNING_RATE: 0.002
+  EPOCHS_PER_LOD: 2
+  LEARNING_DECAY_RATE: 0.1
+  LEARNING_DECAY_STEPS: []
+  TRAIN_EPOCHS: 112
+  #                    4    8   16    32    64    128    256
+  LOD_2_BATCH_8GPU: [512, 256, 128,   64,   32,    32,    32,       32,        32]
+  LOD_2_BATCH_4GPU: [512, 256, 128,   64,   32,    32,    32,       32,        16]
+  LOD_2_BATCH_2GPU: [512, 256, 128,   64,   32,    32,    16]
+  LOD_2_BATCH_1GPU: [512, 256, 128,   64,   32,    16]
+
+  LEARNING_RATES: [0.0015,  0.0015,   0.0015,   0.0015,  0.0015,   0.0015,     0.002,     0.003,    0.003]
+
+2025-03-14 18:42:17,676 logger INFO: Running with config:
+DATASET:
+  FFHQ_SOURCE: data/datasets/evox/cars.tfrecords
+  FLIP_IMAGES: True
+  MAX_RESOLUTION_LEVEL: 7
+  PART_COUNT: 4
+  PART_COUNT_TEST: 1
+  PATH: data/datasets/evox/cars.tfrecords
+  PATH_TEST: 
+  SAMPLES_PATH: dataset_samples/cars
+  SIZE: 758260
+  SIZE_TEST: 10000
+  STYLE_MIX_PATH: style_mixing/test_images/set_cars
+MODEL:
+  CHANNELS: 3
+  DLATENT_AVG_BETA: 0.995
+  ENCODER: EncoderDefault
+  GENERATOR: GeneratorDefault
+  LATENT_SPACE_SIZE: 512
+  LAYER_COUNT: 7
+  MAPPING_D: MappingD
+  MAPPING_F: MappingF
+  MAPPING_LAYERS: 8
+  MAX_CHANNEL_COUNT: 512
+  START_CHANNEL_COUNT: 32
+  STYLE_MIXING_PROB: 0.9
+  TRUNCATIOM_CUTOFF: 8
+  TRUNCATIOM_PSI: 0.7
+  Z_REGRESSION: False
+NAME: evox
+OUTPUT_DIR: training_artifacts/cars
+PPL_CELEBA_ADJUSTMENT: False
+TRAIN:
+  ADAM_BETA_0: 0.0
+  ADAM_BETA_1: 0.99
+  BASE_LEARNING_RATE: 0.002
+  EPOCHS_PER_LOD: 2
+  LEARNING_DECAY_RATE: 0.1
+  LEARNING_DECAY_STEPS: []
+  LEARNING_RATES: [0.0015, 0.0015, 0.0015, 0.0015, 0.0015, 0.0015, 0.002, 0.003, 0.003]
+  LOD_2_BATCH_1GPU: [512, 256, 128, 64, 32, 16]
+  LOD_2_BATCH_2GPU: [512, 256, 128, 64, 32, 32, 16]
+  LOD_2_BATCH_4GPU: [512, 256, 128, 64, 32, 32, 32, 32, 16]
+  LOD_2_BATCH_8GPU: [512, 256, 128, 64, 32, 32, 32, 32, 32]
+  REPORT_FREQ: [100, 80, 60, 30, 20, 10, 10, 5, 5]
+  SNAPSHOT_FREQ: [300, 300, 300, 100, 50, 30, 20, 20, 10]
+  TRAIN_EPOCHS: 112
+2025-03-14 18:42:19,241 logger INFO: Trainable parameters generator:
+2025-03-14 18:42:19,242 logger INFO: Trainable parameters discriminator:
+2025-03-14 18:42:51,266 logger INFO: Namespace(config_file='evox', opts=[])
+2025-03-14 18:42:51,266 logger INFO: World size: 1
+2025-03-14 18:42:51,267 logger INFO: Loaded configuration file configs\evox.yaml
+2025-03-14 18:42:51,271 logger INFO: 
+ # Config for training ALAE on evox at resolution 256x256
+
+NAME: evox
+DATASET:
+  PART_COUNT: 4
+  SIZE: 758260
+  FFHQ_SOURCE: data/datasets/evox/cars.tfrecords
+  PATH: data/datasets/evox/cars.tfrecords
+  MAX_RESOLUTION_LEVEL: 7
+
+  SAMPLES_PATH: dataset_samples/cars
+  STYLE_MIX_PATH: style_mixing/test_images/set_cars
+MODEL:
+  LATENT_SPACE_SIZE: 512
+  LAYER_COUNT: 7
+  MAX_CHANNEL_COUNT: 512
+  START_CHANNEL_COUNT: 32
+  DLATENT_AVG_BETA: 0.995
+  MAPPING_LAYERS: 8
+OUTPUT_DIR: training_artifacts/cars
+TRAIN:
+  BASE_LEARNING_RATE: 0.002
+  EPOCHS_PER_LOD: 2
+  LEARNING_DECAY_RATE: 0.1
+  LEARNING_DECAY_STEPS: []
+  TRAIN_EPOCHS: 112
+  #                    4    8   16    32    64    128    256
+  LOD_2_BATCH_8GPU: [512, 256, 128,   64,   32,    32,    32,       32,        32]
+  LOD_2_BATCH_4GPU: [512, 256, 128,   64,   32,    32,    32,       32,        16]
+  LOD_2_BATCH_2GPU: [512, 256, 128,   64,   32,    32,    16]
+  LOD_2_BATCH_1GPU: [512, 256, 128,   64,   32,    16]
+
+  LEARNING_RATES: [0.0015,  0.0015,   0.0015,   0.0015,  0.0015,   0.0015,     0.002,     0.003,    0.003]
+
+2025-03-14 18:42:51,272 logger INFO: Running with config:
+DATASET:
+  FFHQ_SOURCE: data/datasets/evox/cars.tfrecords
+  FLIP_IMAGES: True
+  MAX_RESOLUTION_LEVEL: 7
+  PART_COUNT: 4
+  PART_COUNT_TEST: 1
+  PATH: data/datasets/evox/cars.tfrecords
+  PATH_TEST: 
+  SAMPLES_PATH: dataset_samples/cars
+  SIZE: 758260
+  SIZE_TEST: 10000
+  STYLE_MIX_PATH: style_mixing/test_images/set_cars
+MODEL:
+  CHANNELS: 3
+  DLATENT_AVG_BETA: 0.995
+  ENCODER: EncoderDefault
+  GENERATOR: GeneratorDefault
+  LATENT_SPACE_SIZE: 512
+  LAYER_COUNT: 7
+  MAPPING_D: MappingD
+  MAPPING_F: MappingF
+  MAPPING_LAYERS: 8
+  MAX_CHANNEL_COUNT: 512
+  START_CHANNEL_COUNT: 32
+  STYLE_MIXING_PROB: 0.9
+  TRUNCATIOM_CUTOFF: 8
+  TRUNCATIOM_PSI: 0.7
+  Z_REGRESSION: False
+NAME: evox
+OUTPUT_DIR: training_artifacts/cars
+PPL_CELEBA_ADJUSTMENT: False
+TRAIN:
+  ADAM_BETA_0: 0.0
+  ADAM_BETA_1: 0.99
+  BASE_LEARNING_RATE: 0.002
+  EPOCHS_PER_LOD: 2
+  LEARNING_DECAY_RATE: 0.1
+  LEARNING_DECAY_STEPS: []
+  LEARNING_RATES: [0.0015, 0.0015, 0.0015, 0.0015, 0.0015, 0.0015, 0.002, 0.003, 0.003]
+  LOD_2_BATCH_1GPU: [512, 256, 128, 64, 32, 16]
+  LOD_2_BATCH_2GPU: [512, 256, 128, 64, 32, 32, 16]
+  LOD_2_BATCH_4GPU: [512, 256, 128, 64, 32, 32, 32, 32, 16]
+  LOD_2_BATCH_8GPU: [512, 256, 128, 64, 32, 32, 32, 32, 32]
+  REPORT_FREQ: [100, 80, 60, 30, 20, 10, 10, 5, 5]
+  SNAPSHOT_FREQ: [300, 300, 300, 100, 50, 30, 20, 20, 10]
+  TRAIN_EPOCHS: 112
+2025-03-14 18:42:52,842 logger INFO: Trainable parameters generator:
+2025-03-14 18:42:52,843 logger INFO: Trainable parameters discriminator:
+2025-03-14 18:42:52,847 logger INFO: No checkpoint found. Initializing model from scratch
+2025-03-14 18:42:52,848 logger INFO: Starting from epoch: 0
+2025-03-14 18:48:31,050 logger INFO: Namespace(config_file='evox', opts=[])
+2025-03-14 18:48:31,050 logger INFO: World size: 1
+2025-03-14 18:48:31,051 logger INFO: Loaded configuration file configs\evox.yaml
+2025-03-14 18:48:31,056 logger INFO: 
+ # Config for training ALAE on evox at resolution 256x256
+
+NAME: evox
+DATASET:
+  PART_COUNT: 4
+  SIZE: 758260
+  FFHQ_SOURCE: data/datasets/evox/cars-r%02d.tfrecords.%03d
+  PATH: data/datasets/evox/cars-r%02d.tfrecords.%03d
+  MAX_RESOLUTION_LEVEL: 7
+
+  SAMPLES_PATH: dataset_samples/cars
+  STYLE_MIX_PATH: style_mixing/test_images/set_cars
+MODEL:
+  LATENT_SPACE_SIZE: 512
+  LAYER_COUNT: 7
+  MAX_CHANNEL_COUNT: 512
+  START_CHANNEL_COUNT: 32
+  DLATENT_AVG_BETA: 0.995
+  MAPPING_LAYERS: 8
+OUTPUT_DIR: training_artifacts/cars
+TRAIN:
+  BASE_LEARNING_RATE: 0.002
+  EPOCHS_PER_LOD: 2
+  LEARNING_DECAY_RATE: 0.1
+  LEARNING_DECAY_STEPS: []
+  TRAIN_EPOCHS: 112
+  #                    4    8   16    32    64    128    256
+  LOD_2_BATCH_8GPU: [512, 256, 128,   64,   32,    32,    32,       32,        32]
+  LOD_2_BATCH_4GPU: [512, 256, 128,   64,   32,    32,    32,       32,        16]
+  LOD_2_BATCH_2GPU: [512, 256, 128,   64,   32,    32,    16]
+  LOD_2_BATCH_1GPU: [512, 256, 128,   64,   32,    16]
+
+  LEARNING_RATES: [0.0015,  0.0015,   0.0015,   0.0015,  0.0015,   0.0015,     0.002,     0.003,    0.003]
+
+2025-03-14 18:48:31,056 logger INFO: Running with config:
+DATASET:
+  FFHQ_SOURCE: data/datasets/evox/cars-r%02d.tfrecords.%03d
+  FLIP_IMAGES: True
+  MAX_RESOLUTION_LEVEL: 7
+  PART_COUNT: 4
+  PART_COUNT_TEST: 1
+  PATH: data/datasets/evox/cars-r%02d.tfrecords.%03d
+  PATH_TEST: 
+  SAMPLES_PATH: dataset_samples/cars
+  SIZE: 758260
+  SIZE_TEST: 10000
+  STYLE_MIX_PATH: style_mixing/test_images/set_cars
+MODEL:
+  CHANNELS: 3
+  DLATENT_AVG_BETA: 0.995
+  ENCODER: EncoderDefault
+  GENERATOR: GeneratorDefault
+  LATENT_SPACE_SIZE: 512
+  LAYER_COUNT: 7
+  MAPPING_D: MappingD
+  MAPPING_F: MappingF
+  MAPPING_LAYERS: 8
+  MAX_CHANNEL_COUNT: 512
+  START_CHANNEL_COUNT: 32
+  STYLE_MIXING_PROB: 0.9
+  TRUNCATIOM_CUTOFF: 8
+  TRUNCATIOM_PSI: 0.7
+  Z_REGRESSION: False
+NAME: evox
+OUTPUT_DIR: training_artifacts/cars
+PPL_CELEBA_ADJUSTMENT: False
+TRAIN:
+  ADAM_BETA_0: 0.0
+  ADAM_BETA_1: 0.99
+  BASE_LEARNING_RATE: 0.002
+  EPOCHS_PER_LOD: 2
+  LEARNING_DECAY_RATE: 0.1
+  LEARNING_DECAY_STEPS: []
+  LEARNING_RATES: [0.0015, 0.0015, 0.0015, 0.0015, 0.0015, 0.0015, 0.002, 0.003, 0.003]
+  LOD_2_BATCH_1GPU: [512, 256, 128, 64, 32, 16]
+  LOD_2_BATCH_2GPU: [512, 256, 128, 64, 32, 32, 16]
+  LOD_2_BATCH_4GPU: [512, 256, 128, 64, 32, 32, 32, 32, 16]
+  LOD_2_BATCH_8GPU: [512, 256, 128, 64, 32, 32, 32, 32, 32]
+  REPORT_FREQ: [100, 80, 60, 30, 20, 10, 10, 5, 5]
+  SNAPSHOT_FREQ: [300, 300, 300, 100, 50, 30, 20, 20, 10]
+  TRAIN_EPOCHS: 112
+2025-03-14 18:48:32,617 logger INFO: Trainable parameters generator:
+2025-03-14 18:48:32,618 logger INFO: Trainable parameters discriminator:
+2025-03-14 18:48:32,625 logger INFO: No checkpoint found. Initializing model from scratch
+2025-03-14 18:48:32,625 logger INFO: Starting from epoch: 0
+2025-03-14 19:14:13,333 logger INFO: Namespace(config_file='evox', opts=[])
+2025-03-14 19:14:13,334 logger INFO: World size: 1
+2025-03-14 19:14:13,334 logger INFO: Loaded configuration file configs\evox.yaml
+2025-03-14 19:14:13,339 logger INFO: 
+ # Config for training ALAE on evox at resolution 256x256
+
+NAME: evox
+DATASET:
+  PART_COUNT: 4
+  SIZE: 758260
+  FFHQ_SOURCE: data/datasets/evox/cars-r%02d.tfrecords.%03d
+  PATH: data/datasets/evox/cars-r%02d.tfrecords.%03d
+  MAX_RESOLUTION_LEVEL: 7
+
+  SAMPLES_PATH: dataset_samples/cars
+  STYLE_MIX_PATH: style_mixing/test_images/set_cars
+MODEL:
+  LATENT_SPACE_SIZE: 512
+  LAYER_COUNT: 7
+  MAX_CHANNEL_COUNT: 512
+  START_CHANNEL_COUNT: 32
+  DLATENT_AVG_BETA: 0.995
+  MAPPING_LAYERS: 8
+OUTPUT_DIR: training_artifacts/cars
+TRAIN:
+  BASE_LEARNING_RATE: 0.002
+  EPOCHS_PER_LOD: 2
+  LEARNING_DECAY_RATE: 0.1
+  LEARNING_DECAY_STEPS: []
+  TRAIN_EPOCHS: 112
+  #                    4    8   16    32    64    128    256
+  LOD_2_BATCH_8GPU: [512, 256, 128,   64,   32,    32,    32,       32,        32]
+  LOD_2_BATCH_4GPU: [512, 256, 128,   64,   32,    32,    32,       32,        16]
+  LOD_2_BATCH_2GPU: [512, 256, 128,   64,   32,    32,    16]
+  LOD_2_BATCH_1GPU: [512, 256, 128,   64,   32,    16]
+
+  LEARNING_RATES: [0.0015,  0.0015,   0.0015,   0.0015,  0.0015,   0.0015,     0.002,     0.003,    0.003]
+
+2025-03-14 19:14:13,340 logger INFO: Running with config:
+DATASET:
+  FFHQ_SOURCE: data/datasets/evox/cars-r%02d.tfrecords.%03d
+  FLIP_IMAGES: True
+  MAX_RESOLUTION_LEVEL: 7
+  PART_COUNT: 4
+  PART_COUNT_TEST: 1
+  PATH: data/datasets/evox/cars-r%02d.tfrecords.%03d
+  PATH_TEST: 
+  SAMPLES_PATH: dataset_samples/cars
+  SIZE: 758260
+  SIZE_TEST: 10000
+  STYLE_MIX_PATH: style_mixing/test_images/set_cars
+MODEL:
+  CHANNELS: 3
+  DLATENT_AVG_BETA: 0.995
+  ENCODER: EncoderDefault
+  GENERATOR: GeneratorDefault
+  LATENT_SPACE_SIZE: 512
+  LAYER_COUNT: 7
+  MAPPING_D: MappingD
+  MAPPING_F: MappingF
+  MAPPING_LAYERS: 8
+  MAX_CHANNEL_COUNT: 512
+  START_CHANNEL_COUNT: 32
+  STYLE_MIXING_PROB: 0.9
+  TRUNCATIOM_CUTOFF: 8
+  TRUNCATIOM_PSI: 0.7
+  Z_REGRESSION: False
+NAME: evox
+OUTPUT_DIR: training_artifacts/cars
+PPL_CELEBA_ADJUSTMENT: False
+TRAIN:
+  ADAM_BETA_0: 0.0
+  ADAM_BETA_1: 0.99
+  BASE_LEARNING_RATE: 0.002
+  EPOCHS_PER_LOD: 2
+  LEARNING_DECAY_RATE: 0.1
+  LEARNING_DECAY_STEPS: []
+  LEARNING_RATES: [0.0015, 0.0015, 0.0015, 0.0015, 0.0015, 0.0015, 0.002, 0.003, 0.003]
+  LOD_2_BATCH_1GPU: [512, 256, 128, 64, 32, 16]
+  LOD_2_BATCH_2GPU: [512, 256, 128, 64, 32, 32, 16]
+  LOD_2_BATCH_4GPU: [512, 256, 128, 64, 32, 32, 32, 32, 16]
+  LOD_2_BATCH_8GPU: [512, 256, 128, 64, 32, 32, 32, 32, 32]
+  REPORT_FREQ: [100, 80, 60, 30, 20, 10, 10, 5, 5]
+  SNAPSHOT_FREQ: [300, 300, 300, 100, 50, 30, 20, 20, 10]
+  TRAIN_EPOCHS: 112
+2025-03-14 19:14:14,882 logger INFO: Trainable parameters generator:
+2025-03-14 19:14:14,882 logger INFO: Trainable parameters discriminator:
+2025-03-14 19:14:14,887 logger INFO: No checkpoint found. Initializing model from scratch
+2025-03-14 19:14:14,888 logger INFO: Starting from epoch: 0
+2025-03-14 19:21:01,964 logger INFO: Namespace(config_file='evox', opts=[])
+2025-03-14 19:21:01,965 logger INFO: World size: 1
+2025-03-14 19:21:01,966 logger INFO: Loaded configuration file configs\evox.yaml
+2025-03-14 19:21:01,966 logger INFO: 
+ # Config for training ALAE on evox at resolution 256x256
+
+NAME: evox
+DATASET:
+  PART_COUNT: 4
+  SIZE: 758260
+  FFHQ_SOURCE: data/datasets/evox/cars-r%02d.tfrecords.%03d
+  PATH: data/datasets/evox/cars-r%02d.tfrecords.%03d
+  MAX_RESOLUTION_LEVEL: 7
+
+  SAMPLES_PATH: dataset_samples/cars
+  STYLE_MIX_PATH: style_mixing/test_images/set_cars
+MODEL:
+  LATENT_SPACE_SIZE: 512
+  LAYER_COUNT: 7
+  MAX_CHANNEL_COUNT: 512
+  START_CHANNEL_COUNT: 32
+  DLATENT_AVG_BETA: 0.995
+  MAPPING_LAYERS: 8
+OUTPUT_DIR: training_artifacts/cars
+TRAIN:
+  BASE_LEARNING_RATE: 0.002
+  EPOCHS_PER_LOD: 2
+  LEARNING_DECAY_RATE: 0.1
+  LEARNING_DECAY_STEPS: []
+  TRAIN_EPOCHS: 112
+  #                    4    8   16    32    64    128    256
+  LOD_2_BATCH_8GPU: [512, 256, 128,   64,   32,    32,    32,       32,        32]
+  LOD_2_BATCH_4GPU: [512, 256, 128,   64,   32,    32,    32,       32,        16]
+  LOD_2_BATCH_2GPU: [512, 256, 128,   64,   32,    32,    16]
+  LOD_2_BATCH_1GPU: [512, 256, 128,   64,   32,    16]
+
+  LEARNING_RATES: [0.0015,  0.0015,   0.0015,   0.0015,  0.0015,   0.0015,     0.002,     0.003,    0.003]
+
+2025-03-14 19:21:01,971 logger INFO: Running with config:
+DATASET:
+  FFHQ_SOURCE: data/datasets/evox/cars-r%02d.tfrecords.%03d
+  FLIP_IMAGES: True
+  MAX_RESOLUTION_LEVEL: 7
+  PART_COUNT: 4
+  PART_COUNT_TEST: 1
+  PATH: data/datasets/evox/cars-r%02d.tfrecords.%03d
+  PATH_TEST: 
+  SAMPLES_PATH: dataset_samples/cars
+  SIZE: 758260
+  SIZE_TEST: 10000
+  STYLE_MIX_PATH: style_mixing/test_images/set_cars
+MODEL:
+  CHANNELS: 3
+  DLATENT_AVG_BETA: 0.995
+  ENCODER: EncoderDefault
+  GENERATOR: GeneratorDefault
+  LATENT_SPACE_SIZE: 512
+  LAYER_COUNT: 7
+  MAPPING_D: MappingD
+  MAPPING_F: MappingF
+  MAPPING_LAYERS: 8
+  MAX_CHANNEL_COUNT: 512
+  START_CHANNEL_COUNT: 32
+  STYLE_MIXING_PROB: 0.9
+  TRUNCATIOM_CUTOFF: 8
+  TRUNCATIOM_PSI: 0.7
+  Z_REGRESSION: False
+NAME: evox
+OUTPUT_DIR: training_artifacts/cars
+PPL_CELEBA_ADJUSTMENT: False
+TRAIN:
+  ADAM_BETA_0: 0.0
+  ADAM_BETA_1: 0.99
+  BASE_LEARNING_RATE: 0.002
+  EPOCHS_PER_LOD: 2
+  LEARNING_DECAY_RATE: 0.1
+  LEARNING_DECAY_STEPS: []
+  LEARNING_RATES: [0.0015, 0.0015, 0.0015, 0.0015, 0.0015, 0.0015, 0.002, 0.003, 0.003]
+  LOD_2_BATCH_1GPU: [512, 256, 128, 64, 32, 16]
+  LOD_2_BATCH_2GPU: [512, 256, 128, 64, 32, 32, 16]
+  LOD_2_BATCH_4GPU: [512, 256, 128, 64, 32, 32, 32, 32, 16]
+  LOD_2_BATCH_8GPU: [512, 256, 128, 64, 32, 32, 32, 32, 32]
+  REPORT_FREQ: [100, 80, 60, 30, 20, 10, 10, 5, 5]
+  SNAPSHOT_FREQ: [300, 300, 300, 100, 50, 30, 20, 20, 10]
+  TRAIN_EPOCHS: 112
+2025-03-14 19:21:03,551 logger INFO: Trainable parameters generator:
+2025-03-14 19:21:03,552 logger INFO: Trainable parameters discriminator:
+2025-03-14 19:21:03,558 logger INFO: No checkpoint found. Initializing model from scratch
+2025-03-14 19:21:03,558 logger INFO: Starting from epoch: 0
+2025-03-14 19:36:46,465 logger INFO: Namespace(config_file='evox', opts=[])
+2025-03-14 19:36:46,466 logger INFO: World size: 1
+2025-03-14 19:36:46,467 logger INFO: Loaded configuration file configs\evox.yaml
+2025-03-14 19:36:46,472 logger INFO: 
+ # Config for training ALAE on evox at resolution 256x256
+
+NAME: evox
+DATASET:
+  PART_COUNT: 4
+  SIZE: 758260
+  FFHQ_SOURCE: data/datasets/evox/cars-r%02d.tfrecords.%03d
+  PATH: data/datasets/evox/cars-r%02d.tfrecords.%03d
+  MAX_RESOLUTION_LEVEL: 7
+
+  SAMPLES_PATH: no_path #dataset_samples/cars
+  STYLE_MIX_PATH: style_mixing/test_images/set_cars
+MODEL:
+  LATENT_SPACE_SIZE: 512
+  LAYER_COUNT: 7
+  MAX_CHANNEL_COUNT: 512
+  START_CHANNEL_COUNT: 32
+  DLATENT_AVG_BETA: 0.995
+  MAPPING_LAYERS: 8
+OUTPUT_DIR: training_artifacts/cars
+TRAIN:
+  BASE_LEARNING_RATE: 0.002
+  EPOCHS_PER_LOD: 2
+  LEARNING_DECAY_RATE: 0.1
+  LEARNING_DECAY_STEPS: []
+  TRAIN_EPOCHS: 112
+  #                    4    8   16    32    64    128    256
+  LOD_2_BATCH_8GPU: [512, 256, 128,   64,   32,    32,    32,       32,        32]
+  LOD_2_BATCH_4GPU: [512, 256, 128,   64,   32,    32,    32,       32,        16]
+  LOD_2_BATCH_2GPU: [512, 256, 128,   64,   32,    32,    16]
+  LOD_2_BATCH_1GPU: [512, 256, 128,   64,   32,    16]
+
+  LEARNING_RATES: [0.0015,  0.0015,   0.0015,   0.0015,  0.0015,   0.0015,     0.002,     0.003,    0.003]
+
+2025-03-14 19:36:46,472 logger INFO: Running with config:
+DATASET:
+  FFHQ_SOURCE: data/datasets/evox/cars-r%02d.tfrecords.%03d
+  FLIP_IMAGES: True
+  MAX_RESOLUTION_LEVEL: 7
+  PART_COUNT: 4
+  PART_COUNT_TEST: 1
+  PATH: data/datasets/evox/cars-r%02d.tfrecords.%03d
+  PATH_TEST: 
+  SAMPLES_PATH: no_path
+  SIZE: 758260
+  SIZE_TEST: 10000
+  STYLE_MIX_PATH: style_mixing/test_images/set_cars
+MODEL:
+  CHANNELS: 3
+  DLATENT_AVG_BETA: 0.995
+  ENCODER: EncoderDefault
+  GENERATOR: GeneratorDefault
+  LATENT_SPACE_SIZE: 512
+  LAYER_COUNT: 7
+  MAPPING_D: MappingD
+  MAPPING_F: MappingF
+  MAPPING_LAYERS: 8
+  MAX_CHANNEL_COUNT: 512
+  START_CHANNEL_COUNT: 32
+  STYLE_MIXING_PROB: 0.9
+  TRUNCATIOM_CUTOFF: 8
+  TRUNCATIOM_PSI: 0.7
+  Z_REGRESSION: False
+NAME: evox
+OUTPUT_DIR: training_artifacts/cars
+PPL_CELEBA_ADJUSTMENT: False
+TRAIN:
+  ADAM_BETA_0: 0.0
+  ADAM_BETA_1: 0.99
+  BASE_LEARNING_RATE: 0.002
+  EPOCHS_PER_LOD: 2
+  LEARNING_DECAY_RATE: 0.1
+  LEARNING_DECAY_STEPS: []
+  LEARNING_RATES: [0.0015, 0.0015, 0.0015, 0.0015, 0.0015, 0.0015, 0.002, 0.003, 0.003]
+  LOD_2_BATCH_1GPU: [512, 256, 128, 64, 32, 16]
+  LOD_2_BATCH_2GPU: [512, 256, 128, 64, 32, 32, 16]
+  LOD_2_BATCH_4GPU: [512, 256, 128, 64, 32, 32, 32, 32, 16]
+  LOD_2_BATCH_8GPU: [512, 256, 128, 64, 32, 32, 32, 32, 32]
+  REPORT_FREQ: [100, 80, 60, 30, 20, 10, 10, 5, 5]
+  SNAPSHOT_FREQ: [300, 300, 300, 100, 50, 30, 20, 20, 10]
+  TRAIN_EPOCHS: 112
+2025-03-14 19:36:48,074 logger INFO: Trainable parameters generator:
+2025-03-14 19:36:48,075 logger INFO: Trainable parameters discriminator:
+2025-03-14 19:36:48,080 logger INFO: No checkpoint found. Initializing model from scratch
+2025-03-14 19:36:48,080 logger INFO: Starting from epoch: 0
+2025-03-14 19:50:53,996 logger INFO: Namespace(config_file='evox', opts=[])
+2025-03-14 19:50:53,996 logger INFO: World size: 1
+2025-03-14 19:50:54,001 logger INFO: Loaded configuration file configs\evox.yaml
+2025-03-14 19:50:54,001 logger INFO: 
+ # Config for training ALAE on evox at resolution 256x256
+
+NAME: evox
+DATASET:
+  PART_COUNT: 1 # how many times to split up the dataset (for parallelizing?)
+  SIZE: 11647
+  FFHQ_SOURCE: data/datasets/evox/cars-r%02d.tfrecords.%03d
+  PATH: data/datasets/evox/cars-r%02d.tfrecords.%03d
+  MAX_RESOLUTION_LEVEL: 7
+
+  SAMPLES_PATH: no_path #dataset_samples/cars
+  STYLE_MIX_PATH: style_mixing/test_images/set_cars
+MODEL:
+  LATENT_SPACE_SIZE: 512
+  LAYER_COUNT: 7
+  MAX_CHANNEL_COUNT: 512
+  START_CHANNEL_COUNT: 32
+  DLATENT_AVG_BETA: 0.995
+  MAPPING_LAYERS: 8
+OUTPUT_DIR: training_artifacts/cars
+TRAIN:
+  BASE_LEARNING_RATE: 0.002
+  EPOCHS_PER_LOD: 2
+  LEARNING_DECAY_RATE: 0.1
+  LEARNING_DECAY_STEPS: []
+  TRAIN_EPOCHS: 112
+  #                    4    8   16    32    64    128    256
+  LOD_2_BATCH_8GPU: [512, 256, 128,   64,   32,    32,    32,       32,        32]
+  LOD_2_BATCH_4GPU: [512, 256, 128,   64,   32,    32,    32,       32,        16]
+  LOD_2_BATCH_2GPU: [512, 256, 128,   64,   32,    32,    16]
+  LOD_2_BATCH_1GPU: [512, 256, 128,   64,   32,    16]
+
+  LEARNING_RATES: [0.0015,  0.0015,   0.0015,   0.0015,  0.0015,   0.0015,     0.002,     0.003,    0.003]
+
+2025-03-14 19:50:54,002 logger INFO: Running with config:
+DATASET:
+  FFHQ_SOURCE: data/datasets/evox/cars-r%02d.tfrecords.%03d
+  FLIP_IMAGES: True
+  MAX_RESOLUTION_LEVEL: 7
+  PART_COUNT: 1
+  PART_COUNT_TEST: 1
+  PATH: data/datasets/evox/cars-r%02d.tfrecords.%03d
+  PATH_TEST: 
+  SAMPLES_PATH: no_path
+  SIZE: 11647
+  SIZE_TEST: 10000
+  STYLE_MIX_PATH: style_mixing/test_images/set_cars
+MODEL:
+  CHANNELS: 3
+  DLATENT_AVG_BETA: 0.995
+  ENCODER: EncoderDefault
+  GENERATOR: GeneratorDefault
+  LATENT_SPACE_SIZE: 512
+  LAYER_COUNT: 7
+  MAPPING_D: MappingD
+  MAPPING_F: MappingF
+  MAPPING_LAYERS: 8
+  MAX_CHANNEL_COUNT: 512
+  START_CHANNEL_COUNT: 32
+  STYLE_MIXING_PROB: 0.9
+  TRUNCATIOM_CUTOFF: 8
+  TRUNCATIOM_PSI: 0.7
+  Z_REGRESSION: False
+NAME: evox
+OUTPUT_DIR: training_artifacts/cars
+PPL_CELEBA_ADJUSTMENT: False
+TRAIN:
+  ADAM_BETA_0: 0.0
+  ADAM_BETA_1: 0.99
+  BASE_LEARNING_RATE: 0.002
+  EPOCHS_PER_LOD: 2
+  LEARNING_DECAY_RATE: 0.1
+  LEARNING_DECAY_STEPS: []
+  LEARNING_RATES: [0.0015, 0.0015, 0.0015, 0.0015, 0.0015, 0.0015, 0.002, 0.003, 0.003]
+  LOD_2_BATCH_1GPU: [512, 256, 128, 64, 32, 16]
+  LOD_2_BATCH_2GPU: [512, 256, 128, 64, 32, 32, 16]
+  LOD_2_BATCH_4GPU: [512, 256, 128, 64, 32, 32, 32, 32, 16]
+  LOD_2_BATCH_8GPU: [512, 256, 128, 64, 32, 32, 32, 32, 32]
+  REPORT_FREQ: [100, 80, 60, 30, 20, 10, 10, 5, 5]
+  SNAPSHOT_FREQ: [300, 300, 300, 100, 50, 30, 20, 20, 10]
+  TRAIN_EPOCHS: 112
+2025-03-14 19:50:55,555 logger INFO: Trainable parameters generator:
+2025-03-14 19:50:55,556 logger INFO: Trainable parameters discriminator:
+2025-03-14 19:50:55,561 logger INFO: No checkpoint found. Initializing model from scratch
+2025-03-14 19:50:55,561 logger INFO: Starting from epoch: 0
+2025-03-14 20:18:28,197 logger INFO: Namespace(config_file='evox', opts=[])
+2025-03-14 20:18:28,197 logger INFO: World size: 1
+2025-03-14 20:18:28,198 logger INFO: Loaded configuration file configs\evox.yaml
+2025-03-14 20:18:28,202 logger INFO: 
+ # Config for training ALAE on evox at resolution 256x256
+
+NAME: evox
+DATASET:
+  PART_COUNT: 1 # how many times to split up the dataset (for parallelizing?)
+  SIZE: 11647
+  PATH: data/datasets/evox/evox-r%02d.tfrecords.%03d
+  PATH_TEST: data/datasets/evox-test/evox-test-r%02d.tfrecords.%03d
+  MAX_RESOLUTION_LEVEL: 7
+
+  SAMPLES_PATH: dataset_samples/cars
+  STYLE_MIX_PATH: style_mixing/test_images/set_cars
+MODEL:
+  LATENT_SPACE_SIZE: 512
+  LAYER_COUNT: 7
+  MAX_CHANNEL_COUNT: 512
+  START_CHANNEL_COUNT: 32
+  DLATENT_AVG_BETA: 0.995
+  MAPPING_LAYERS: 8
+OUTPUT_DIR: training_artifacts/cars
+TRAIN:
+  BASE_LEARNING_RATE: 0.002
+  EPOCHS_PER_LOD: 2
+  LEARNING_DECAY_RATE: 0.1
+  LEARNING_DECAY_STEPS: []
+  TRAIN_EPOCHS: 112
+  #                    4    8   16    32    64    128    256
+  LOD_2_BATCH_8GPU: [512, 256, 128,   64,   32,    32,    32,       32,        32]
+  LOD_2_BATCH_4GPU: [512, 256, 128,   64,   32,    32,    32,       32,        16]
+  LOD_2_BATCH_2GPU: [512, 256, 128,   64,   32,    32,    16]
+  LOD_2_BATCH_1GPU: [512, 256, 128,   64,   32,    16]
+
+  LEARNING_RATES: [0.0015,  0.0015,   0.0015,   0.0015,  0.0015,   0.0015,     0.002,     0.003,    0.003]
+
+2025-03-14 20:18:28,203 logger INFO: Running with config:
+DATASET:
+  FFHQ_SOURCE: /data/datasets/ffhq-dataset/tfrecords/ffhq/ffhq-r%02d.tfrecords
+  FLIP_IMAGES: True
+  MAX_RESOLUTION_LEVEL: 7
+  PART_COUNT: 1
+  PART_COUNT_TEST: 1
+  PATH: data/datasets/evox/evox-r%02d.tfrecords.%03d
+  PATH_TEST: data/datasets/evox-test/evox-test-r%02d.tfrecords.%03d
+  SAMPLES_PATH: dataset_samples/cars
+  SIZE: 11647
+  SIZE_TEST: 10000
+  STYLE_MIX_PATH: style_mixing/test_images/set_cars
+MODEL:
+  CHANNELS: 3
+  DLATENT_AVG_BETA: 0.995
+  ENCODER: EncoderDefault
+  GENERATOR: GeneratorDefault
+  LATENT_SPACE_SIZE: 512
+  LAYER_COUNT: 7
+  MAPPING_D: MappingD
+  MAPPING_F: MappingF
+  MAPPING_LAYERS: 8
+  MAX_CHANNEL_COUNT: 512
+  START_CHANNEL_COUNT: 32
+  STYLE_MIXING_PROB: 0.9
+  TRUNCATIOM_CUTOFF: 8
+  TRUNCATIOM_PSI: 0.7
+  Z_REGRESSION: False
+NAME: evox
+OUTPUT_DIR: training_artifacts/cars
+PPL_CELEBA_ADJUSTMENT: False
+TRAIN:
+  ADAM_BETA_0: 0.0
+  ADAM_BETA_1: 0.99
+  BASE_LEARNING_RATE: 0.002
+  EPOCHS_PER_LOD: 2
+  LEARNING_DECAY_RATE: 0.1
+  LEARNING_DECAY_STEPS: []
+  LEARNING_RATES: [0.0015, 0.0015, 0.0015, 0.0015, 0.0015, 0.0015, 0.002, 0.003, 0.003]
+  LOD_2_BATCH_1GPU: [512, 256, 128, 64, 32, 16]
+  LOD_2_BATCH_2GPU: [512, 256, 128, 64, 32, 32, 16]
+  LOD_2_BATCH_4GPU: [512, 256, 128, 64, 32, 32, 32, 32, 16]
+  LOD_2_BATCH_8GPU: [512, 256, 128, 64, 32, 32, 32, 32, 32]
+  REPORT_FREQ: [100, 80, 60, 30, 20, 10, 10, 5, 5]
+  SNAPSHOT_FREQ: [300, 300, 300, 100, 50, 30, 20, 20, 10]
+  TRAIN_EPOCHS: 112
+2025-03-14 20:18:29,882 logger INFO: Trainable parameters generator:
+2025-03-14 20:18:29,883 logger INFO: Trainable parameters discriminator:
+2025-03-14 20:18:29,887 logger INFO: No checkpoint found. Initializing model from scratch
+2025-03-14 20:18:29,888 logger INFO: Starting from epoch: 0
+2025-03-14 20:29:09,074 logger INFO: Namespace(config_file='evox', opts=[])
+2025-03-14 20:29:09,075 logger INFO: World size: 1
+2025-03-14 20:29:09,075 logger INFO: Loaded configuration file configs\evox.yaml
+2025-03-14 20:29:09,080 logger INFO: 
+ # Config for training ALAE on evox at resolution 256x256
+
+NAME: evox
+DATASET:
+  PART_COUNT: 1 # how many times to split up the dataset (for parallelizing?)
+  SIZE: 11647
+  PATH: data/datasets/evox/evox-r%02d.tfrecords.%03d
+  PATH_TEST: data/datasets/evox-test/evox-test-r%02d.tfrecords.%03d
+  MAX_RESOLUTION_LEVEL: 7
+
+  SAMPLES_PATH: no_path #dataset_samples/cars
+  STYLE_MIX_PATH: style_mixing/test_images/set_cars
+MODEL:
+  LATENT_SPACE_SIZE: 512
+  LAYER_COUNT: 7
+  MAX_CHANNEL_COUNT: 512
+  START_CHANNEL_COUNT: 32
+  DLATENT_AVG_BETA: 0.995
+  MAPPING_LAYERS: 8
+OUTPUT_DIR: training_artifacts/cars
+TRAIN:
+  BASE_LEARNING_RATE: 0.002
+  EPOCHS_PER_LOD: 2
+  LEARNING_DECAY_RATE: 0.1
+  LEARNING_DECAY_STEPS: []
+  TRAIN_EPOCHS: 112
+  #                    4    8   16    32    64    128    256
+  LOD_2_BATCH_8GPU: [512, 256, 128,   64,   32,    32,    32,       32,        32]
+  LOD_2_BATCH_4GPU: [512, 256, 128,   64,   32,    32,    32,       32,        16]
+  LOD_2_BATCH_2GPU: [512, 256, 128,   64,   32,    32,    16]
+  LOD_2_BATCH_1GPU: [512, 256, 128,   64,   32,    16]
+
+  LEARNING_RATES: [0.0015,  0.0015,   0.0015,   0.0015,  0.0015,   0.0015,     0.002,     0.003,    0.003]
+
+2025-03-14 20:29:09,080 logger INFO: Running with config:
+DATASET:
+  FFHQ_SOURCE: /data/datasets/ffhq-dataset/tfrecords/ffhq/ffhq-r%02d.tfrecords
+  FLIP_IMAGES: True
+  MAX_RESOLUTION_LEVEL: 7
+  PART_COUNT: 1
+  PART_COUNT_TEST: 1
+  PATH: data/datasets/evox/evox-r%02d.tfrecords.%03d
+  PATH_TEST: data/datasets/evox-test/evox-test-r%02d.tfrecords.%03d
+  SAMPLES_PATH: no_path
+  SIZE: 11647
+  SIZE_TEST: 10000
+  STYLE_MIX_PATH: style_mixing/test_images/set_cars
+MODEL:
+  CHANNELS: 3
+  DLATENT_AVG_BETA: 0.995
+  ENCODER: EncoderDefault
+  GENERATOR: GeneratorDefault
+  LATENT_SPACE_SIZE: 512
+  LAYER_COUNT: 7
+  MAPPING_D: MappingD
+  MAPPING_F: MappingF
+  MAPPING_LAYERS: 8
+  MAX_CHANNEL_COUNT: 512
+  START_CHANNEL_COUNT: 32
+  STYLE_MIXING_PROB: 0.9
+  TRUNCATIOM_CUTOFF: 8
+  TRUNCATIOM_PSI: 0.7
+  Z_REGRESSION: False
+NAME: evox
+OUTPUT_DIR: training_artifacts/cars
+PPL_CELEBA_ADJUSTMENT: False
+TRAIN:
+  ADAM_BETA_0: 0.0
+  ADAM_BETA_1: 0.99
+  BASE_LEARNING_RATE: 0.002
+  EPOCHS_PER_LOD: 2
+  LEARNING_DECAY_RATE: 0.1
+  LEARNING_DECAY_STEPS: []
+  LEARNING_RATES: [0.0015, 0.0015, 0.0015, 0.0015, 0.0015, 0.0015, 0.002, 0.003, 0.003]
+  LOD_2_BATCH_1GPU: [512, 256, 128, 64, 32, 16]
+  LOD_2_BATCH_2GPU: [512, 256, 128, 64, 32, 32, 16]
+  LOD_2_BATCH_4GPU: [512, 256, 128, 64, 32, 32, 32, 32, 16]
+  LOD_2_BATCH_8GPU: [512, 256, 128, 64, 32, 32, 32, 32, 32]
+  REPORT_FREQ: [100, 80, 60, 30, 20, 10, 10, 5, 5]
+  SNAPSHOT_FREQ: [300, 300, 300, 100, 50, 30, 20, 20, 10]
+  TRAIN_EPOCHS: 112
+2025-03-14 20:29:10,659 logger INFO: Trainable parameters generator:
+2025-03-14 20:29:10,660 logger INFO: Trainable parameters discriminator:
+2025-03-14 20:29:10,665 logger INFO: No checkpoint found. Initializing model from scratch
+2025-03-14 20:29:10,665 logger INFO: Starting from epoch: 0
+2025-03-14 20:33:46,957 logger INFO: Namespace(config_file='evox', opts=[])
+2025-03-14 20:33:46,957 logger INFO: World size: 1
+2025-03-14 20:33:46,958 logger INFO: Loaded configuration file configs\evox.yaml
+2025-03-14 20:33:46,958 logger INFO: 
+ # Config for training ALAE on evox at resolution 256x256
+
+NAME: evox
+DATASET:
+  PART_COUNT: 1 # how many times to split up the dataset (for parallelizing?)
+  SIZE: 11647
+  PATH: data/datasets/evox/evox-r%02d.tfrecords.%03d
+  PATH_TEST: data/datasets/evox-test/evox-test-r%02d.tfrecords.%03d
+  MAX_RESOLUTION_LEVEL: 7
+
+  SAMPLES_PATH: no_path #dataset_samples/cars
+  STYLE_MIX_PATH: style_mixing/test_images/set_cars
+MODEL:
+  LATENT_SPACE_SIZE: 512
+  LAYER_COUNT: 7
+  MAX_CHANNEL_COUNT: 512
+  START_CHANNEL_COUNT: 32
+  DLATENT_AVG_BETA: 0.995
+  MAPPING_LAYERS: 8
+OUTPUT_DIR: training_artifacts/cars
+TRAIN:
+  BASE_LEARNING_RATE: 0.002
+  EPOCHS_PER_LOD: 2
+  LEARNING_DECAY_RATE: 0.1
+  LEARNING_DECAY_STEPS: []
+  TRAIN_EPOCHS: 112
+  #                    4    8   16    32    64    128    256
+  LOD_2_BATCH_8GPU: [512, 256, 128,   64,   32,    32,    32,       32,        32]
+  LOD_2_BATCH_4GPU: [512, 256, 128,   64,   32,    32,    32,       32,        16]
+  LOD_2_BATCH_2GPU: [512, 256, 128,   64,   32,    32,    16]
+  LOD_2_BATCH_1GPU: [512, 256, 128,   64,   32,    16]
+
+  LEARNING_RATES: [0.0015,  0.0015,   0.0015,   0.0015,  0.0015,   0.0015,     0.002,     0.003,    0.003]
+
+2025-03-14 20:33:46,959 logger INFO: Running with config:
+DATASET:
+  FFHQ_SOURCE: /data/datasets/ffhq-dataset/tfrecords/ffhq/ffhq-r%02d.tfrecords
+  FLIP_IMAGES: True
+  MAX_RESOLUTION_LEVEL: 7
+  PART_COUNT: 1
+  PART_COUNT_TEST: 1
+  PATH: data/datasets/evox/evox-r%02d.tfrecords.%03d
+  PATH_TEST: data/datasets/evox-test/evox-test-r%02d.tfrecords.%03d
+  SAMPLES_PATH: no_path
+  SIZE: 11647
+  SIZE_TEST: 10000
+  STYLE_MIX_PATH: style_mixing/test_images/set_cars
+MODEL:
+  CHANNELS: 3
+  DLATENT_AVG_BETA: 0.995
+  ENCODER: EncoderDefault
+  GENERATOR: GeneratorDefault
+  LATENT_SPACE_SIZE: 512
+  LAYER_COUNT: 7
+  MAPPING_D: MappingD
+  MAPPING_F: MappingF
+  MAPPING_LAYERS: 8
+  MAX_CHANNEL_COUNT: 512
+  START_CHANNEL_COUNT: 32
+  STYLE_MIXING_PROB: 0.9
+  TRUNCATIOM_CUTOFF: 8
+  TRUNCATIOM_PSI: 0.7
+  Z_REGRESSION: False
+NAME: evox
+OUTPUT_DIR: training_artifacts/cars
+PPL_CELEBA_ADJUSTMENT: False
+TRAIN:
+  ADAM_BETA_0: 0.0
+  ADAM_BETA_1: 0.99
+  BASE_LEARNING_RATE: 0.002
+  EPOCHS_PER_LOD: 2
+  LEARNING_DECAY_RATE: 0.1
+  LEARNING_DECAY_STEPS: []
+  LEARNING_RATES: [0.0015, 0.0015, 0.0015, 0.0015, 0.0015, 0.0015, 0.002, 0.003, 0.003]
+  LOD_2_BATCH_1GPU: [512, 256, 128, 64, 32, 16]
+  LOD_2_BATCH_2GPU: [512, 256, 128, 64, 32, 32, 16]
+  LOD_2_BATCH_4GPU: [512, 256, 128, 64, 32, 32, 32, 32, 16]
+  LOD_2_BATCH_8GPU: [512, 256, 128, 64, 32, 32, 32, 32, 32]
+  REPORT_FREQ: [100, 80, 60, 30, 20, 10, 10, 5, 5]
+  SNAPSHOT_FREQ: [300, 300, 300, 100, 50, 30, 20, 20, 10]
+  TRAIN_EPOCHS: 112
+2025-03-14 20:33:48,560 logger INFO: Trainable parameters generator:
+2025-03-14 20:33:48,561 logger INFO: Trainable parameters discriminator:
+2025-03-14 20:33:48,566 logger INFO: No checkpoint found. Initializing model from scratch
+2025-03-14 20:33:48,566 logger INFO: Starting from epoch: 0
+2025-03-14 20:41:35,935 logger INFO: Namespace(config_file='evox', opts=[])
+2025-03-14 20:41:35,936 logger INFO: World size: 1
+2025-03-14 20:41:35,936 logger INFO: Loaded configuration file configs\evox.yaml
+2025-03-14 20:41:35,941 logger INFO: 
+ # Config for training ALAE on evox at resolution 256x256
+
+NAME: evox
+DATASET:
+  PART_COUNT: 1 # how many times to split up the dataset (for parallelizing?)
+  SIZE: 11647
+  PATH: data/datasets/evox/evox-r%02d.tfrecords.%03d
+  PATH_TEST: data/datasets/evox-test/evox-test-r%02d.tfrecords.%03d
+  MAX_RESOLUTION_LEVEL: 7
+
+  SAMPLES_PATH: no_path #dataset_samples/cars
+  STYLE_MIX_PATH: style_mixing/test_images/set_cars
+MODEL:
+  LATENT_SPACE_SIZE: 512
+  LAYER_COUNT: 7
+  MAX_CHANNEL_COUNT: 512
+  START_CHANNEL_COUNT: 32
+  DLATENT_AVG_BETA: 0.995
+  MAPPING_LAYERS: 8
+OUTPUT_DIR: training_artifacts/cars
+TRAIN:
+  BASE_LEARNING_RATE: 0.002
+  EPOCHS_PER_LOD: 2
+  LEARNING_DECAY_RATE: 0.1
+  LEARNING_DECAY_STEPS: []
+  TRAIN_EPOCHS: 112
+  #                    4    8   16    32    64    128    256
+  LOD_2_BATCH_8GPU: [512, 256, 128,   64,   32,    32,    32,       32,        32]
+  LOD_2_BATCH_4GPU: [512, 256, 128,   64,   32,    32,    32,       32,        16]
+  LOD_2_BATCH_2GPU: [512, 256, 128,   64,   32,    32,    16]
+  LOD_2_BATCH_1GPU: [512, 256, 128,   64,   32,    16]
+
+  LEARNING_RATES: [0.0015,  0.0015,   0.0015,   0.0015,  0.0015,   0.0015,     0.002,     0.003,    0.003]
+
+2025-03-14 20:41:35,942 logger INFO: Running with config:
+DATASET:
+  FFHQ_SOURCE: /data/datasets/ffhq-dataset/tfrecords/ffhq/ffhq-r%02d.tfrecords
+  FLIP_IMAGES: True
+  MAX_RESOLUTION_LEVEL: 7
+  PART_COUNT: 1
+  PART_COUNT_TEST: 1
+  PATH: data/datasets/evox/evox-r%02d.tfrecords.%03d
+  PATH_TEST: data/datasets/evox-test/evox-test-r%02d.tfrecords.%03d
+  SAMPLES_PATH: no_path
+  SIZE: 11647
+  SIZE_TEST: 10000
+  STYLE_MIX_PATH: style_mixing/test_images/set_cars
+MODEL:
+  CHANNELS: 3
+  DLATENT_AVG_BETA: 0.995
+  ENCODER: EncoderDefault
+  GENERATOR: GeneratorDefault
+  LATENT_SPACE_SIZE: 512
+  LAYER_COUNT: 7
+  MAPPING_D: MappingD
+  MAPPING_F: MappingF
+  MAPPING_LAYERS: 8
+  MAX_CHANNEL_COUNT: 512
+  START_CHANNEL_COUNT: 32
+  STYLE_MIXING_PROB: 0.9
+  TRUNCATIOM_CUTOFF: 8
+  TRUNCATIOM_PSI: 0.7
+  Z_REGRESSION: False
+NAME: evox
+OUTPUT_DIR: training_artifacts/cars
+PPL_CELEBA_ADJUSTMENT: False
+TRAIN:
+  ADAM_BETA_0: 0.0
+  ADAM_BETA_1: 0.99
+  BASE_LEARNING_RATE: 0.002
+  EPOCHS_PER_LOD: 2
+  LEARNING_DECAY_RATE: 0.1
+  LEARNING_DECAY_STEPS: []
+  LEARNING_RATES: [0.0015, 0.0015, 0.0015, 0.0015, 0.0015, 0.0015, 0.002, 0.003, 0.003]
+  LOD_2_BATCH_1GPU: [512, 256, 128, 64, 32, 16]
+  LOD_2_BATCH_2GPU: [512, 256, 128, 64, 32, 32, 16]
+  LOD_2_BATCH_4GPU: [512, 256, 128, 64, 32, 32, 32, 32, 16]
+  LOD_2_BATCH_8GPU: [512, 256, 128, 64, 32, 32, 32, 32, 32]
+  REPORT_FREQ: [100, 80, 60, 30, 20, 10, 10, 5, 5]
+  SNAPSHOT_FREQ: [300, 300, 300, 100, 50, 30, 20, 20, 10]
+  TRAIN_EPOCHS: 112
+2025-03-14 20:41:37,529 logger INFO: Trainable parameters generator:
+2025-03-14 20:41:37,530 logger INFO: Trainable parameters discriminator:
+2025-03-14 20:41:37,535 logger INFO: No checkpoint found. Initializing model from scratch
+2025-03-14 20:41:37,535 logger INFO: Starting from epoch: 0
+2025-03-14 20:44:33,968 logger INFO: Namespace(config_file='evox', opts=[])
+2025-03-14 20:44:33,969 logger INFO: World size: 1
+2025-03-14 20:44:33,969 logger INFO: Loaded configuration file configs\evox.yaml
+2025-03-14 20:44:33,969 logger INFO: 
+ # Config for training ALAE on evox at resolution 256x256
+
+NAME: evox
+DATASET:
+  PART_COUNT: 1 # how many times to split up the dataset (for parallelizing?)
+  SIZE: 11647
+  PATH: data/datasets/evox/evox-r%02d.tfrecords.%03d
+  PATH_TEST: data/datasets/evox-test/evox-test-r%02d.tfrecords.%03d
+  MAX_RESOLUTION_LEVEL: 7
+
+  SAMPLES_PATH: no_path #dataset_samples/cars
+  STYLE_MIX_PATH: style_mixing/test_images/set_cars
+MODEL:
+  LATENT_SPACE_SIZE: 512
+  LAYER_COUNT: 7
+  MAX_CHANNEL_COUNT: 512
+  START_CHANNEL_COUNT: 32
+  DLATENT_AVG_BETA: 0.995
+  MAPPING_LAYERS: 8
+  CHANNELS: 1 #greyscale
+OUTPUT_DIR: training_artifacts/cars
+TRAIN:
+  BASE_LEARNING_RATE: 0.002
+  EPOCHS_PER_LOD: 2
+  LEARNING_DECAY_RATE: 0.1
+  LEARNING_DECAY_STEPS: []
+  TRAIN_EPOCHS: 112
+  #                    4    8   16    32    64    128    256
+  LOD_2_BATCH_8GPU: [512, 256, 128,   64,   32,    32,    32,       32,        32]
+  LOD_2_BATCH_4GPU: [512, 256, 128,   64,   32,    32,    32,       32,        16]
+  LOD_2_BATCH_2GPU: [512, 256, 128,   64,   32,    32,    16]
+  LOD_2_BATCH_1GPU: [512, 256, 128,   64,   32,    16]
+
+  LEARNING_RATES: [0.0015,  0.0015,   0.0015,   0.0015,  0.0015,   0.0015,     0.002,     0.003,    0.003]
+
+2025-03-14 20:44:33,970 logger INFO: Running with config:
+DATASET:
+  FFHQ_SOURCE: /data/datasets/ffhq-dataset/tfrecords/ffhq/ffhq-r%02d.tfrecords
+  FLIP_IMAGES: True
+  MAX_RESOLUTION_LEVEL: 7
+  PART_COUNT: 1
+  PART_COUNT_TEST: 1
+  PATH: data/datasets/evox/evox-r%02d.tfrecords.%03d
+  PATH_TEST: data/datasets/evox-test/evox-test-r%02d.tfrecords.%03d
+  SAMPLES_PATH: no_path
+  SIZE: 11647
+  SIZE_TEST: 10000
+  STYLE_MIX_PATH: style_mixing/test_images/set_cars
+MODEL:
+  CHANNELS: 1
+  DLATENT_AVG_BETA: 0.995
+  ENCODER: EncoderDefault
+  GENERATOR: GeneratorDefault
+  LATENT_SPACE_SIZE: 512
+  LAYER_COUNT: 7
+  MAPPING_D: MappingD
+  MAPPING_F: MappingF
+  MAPPING_LAYERS: 8
+  MAX_CHANNEL_COUNT: 512
+  START_CHANNEL_COUNT: 32
+  STYLE_MIXING_PROB: 0.9
+  TRUNCATIOM_CUTOFF: 8
+  TRUNCATIOM_PSI: 0.7
+  Z_REGRESSION: False
+NAME: evox
+OUTPUT_DIR: training_artifacts/cars
+PPL_CELEBA_ADJUSTMENT: False
+TRAIN:
+  ADAM_BETA_0: 0.0
+  ADAM_BETA_1: 0.99
+  BASE_LEARNING_RATE: 0.002
+  EPOCHS_PER_LOD: 2
+  LEARNING_DECAY_RATE: 0.1
+  LEARNING_DECAY_STEPS: []
+  LEARNING_RATES: [0.0015, 0.0015, 0.0015, 0.0015, 0.0015, 0.0015, 0.002, 0.003, 0.003]
+  LOD_2_BATCH_1GPU: [512, 256, 128, 64, 32, 16]
+  LOD_2_BATCH_2GPU: [512, 256, 128, 64, 32, 32, 16]
+  LOD_2_BATCH_4GPU: [512, 256, 128, 64, 32, 32, 32, 32, 16]
+  LOD_2_BATCH_8GPU: [512, 256, 128, 64, 32, 32, 32, 32, 32]
+  REPORT_FREQ: [100, 80, 60, 30, 20, 10, 10, 5, 5]
+  SNAPSHOT_FREQ: [300, 300, 300, 100, 50, 30, 20, 20, 10]
+  TRAIN_EPOCHS: 112
+2025-03-14 20:44:35,529 logger INFO: Trainable parameters generator:
+2025-03-14 20:44:35,530 logger INFO: Trainable parameters discriminator:
+2025-03-14 20:44:35,535 logger INFO: No checkpoint found. Initializing model from scratch
+2025-03-14 20:44:35,535 logger INFO: Starting from epoch: 0
+2025-03-14 20:44:35,759 logger INFO: ################################################################################
+2025-03-14 20:44:35,759 logger INFO: # Switching LOD to 0
+2025-03-14 20:44:35,760 logger INFO: # Starting transition
+2025-03-14 20:44:35,761 logger INFO: ################################################################################
+2025-03-14 20:44:35,764 logger INFO: ################################################################################
+2025-03-14 20:44:35,765 logger INFO: # Transition ended
+2025-03-14 20:44:35,765 logger INFO: ################################################################################
+2025-03-14 20:44:35,766 logger INFO: Batch size: 512, Batch size per GPU: 512, LOD: 0 - 4x4, blend: 1.000, dataset size: 11647
+2025-03-14 21:00:51,732 logger INFO: Namespace(config_file='evox', opts=[])
+2025-03-14 21:00:51,733 logger INFO: World size: 1
+2025-03-14 21:00:51,734 logger INFO: Loaded configuration file configs\evox.yaml
+2025-03-14 21:00:51,738 logger INFO: 
+ # Config for training ALAE on evox at resolution 256x256
+
+NAME: evox
+DATASET:
+  PART_COUNT: 1 # how many times to split up the dataset (for parallelizing?)
+  SIZE: 11647
+  PATH: data/datasets/evox/evox-r%02d.tfrecords.%03d
+  PATH_TEST: data/datasets/evox-test/evox-test-r%02d.tfrecords.%03d
+  MAX_RESOLUTION_LEVEL: 7
+
+  SAMPLES_PATH: no_path #dataset_samples/cars
+  STYLE_MIX_PATH: style_mixing/test_images/set_cars
+MODEL:
+  LATENT_SPACE_SIZE: 512
+  LAYER_COUNT: 7
+  MAX_CHANNEL_COUNT: 512
+  START_CHANNEL_COUNT: 32
+  DLATENT_AVG_BETA: 0.995
+  MAPPING_LAYERS: 8
+  CHANNELS: 1 #greyscale
+OUTPUT_DIR: training_artifacts/cars
+TRAIN:
+  BASE_LEARNING_RATE: 0.002
+  EPOCHS_PER_LOD: 2
+  LEARNING_DECAY_RATE: 0.1
+  LEARNING_DECAY_STEPS: []
+  TRAIN_EPOCHS: 112
+  #                    4    8   16    32    64    128    256
+  LOD_2_BATCH_8GPU: [512, 256, 128,   64,   32,    32,    32,       32,        32]
+  LOD_2_BATCH_4GPU: [512, 256, 128,   64,   32,    32,    32,       32,        16]
+  LOD_2_BATCH_2GPU: [512, 256, 128,   64,   32,    32,    16]
+  LOD_2_BATCH_1GPU: [512, 256, 128,   64,   32,    16]
+
+  LEARNING_RATES: [0.0015,  0.0015,   0.0015,   0.0015,  0.0015,   0.0015,     0.002,     0.003,    0.003]
+
+2025-03-14 21:00:51,739 logger INFO: Running with config:
+DATASET:
+  FFHQ_SOURCE: /data/datasets/ffhq-dataset/tfrecords/ffhq/ffhq-r%02d.tfrecords
+  FLIP_IMAGES: True
+  MAX_RESOLUTION_LEVEL: 7
+  PART_COUNT: 1
+  PART_COUNT_TEST: 1
+  PATH: data/datasets/evox/evox-r%02d.tfrecords.%03d
+  PATH_TEST: data/datasets/evox-test/evox-test-r%02d.tfrecords.%03d
+  SAMPLES_PATH: no_path
+  SIZE: 11647
+  SIZE_TEST: 10000
+  STYLE_MIX_PATH: style_mixing/test_images/set_cars
+MODEL:
+  CHANNELS: 1
+  DLATENT_AVG_BETA: 0.995
+  ENCODER: EncoderDefault
+  GENERATOR: GeneratorDefault
+  LATENT_SPACE_SIZE: 512
+  LAYER_COUNT: 7
+  MAPPING_D: MappingD
+  MAPPING_F: MappingF
+  MAPPING_LAYERS: 8
+  MAX_CHANNEL_COUNT: 512
+  START_CHANNEL_COUNT: 32
+  STYLE_MIXING_PROB: 0.9
+  TRUNCATIOM_CUTOFF: 8
+  TRUNCATIOM_PSI: 0.7
+  Z_REGRESSION: False
+NAME: evox
+OUTPUT_DIR: training_artifacts/cars
+PPL_CELEBA_ADJUSTMENT: False
+TRAIN:
+  ADAM_BETA_0: 0.0
+  ADAM_BETA_1: 0.99
+  BASE_LEARNING_RATE: 0.002
+  EPOCHS_PER_LOD: 2
+  LEARNING_DECAY_RATE: 0.1
+  LEARNING_DECAY_STEPS: []
+  LEARNING_RATES: [0.0015, 0.0015, 0.0015, 0.0015, 0.0015, 0.0015, 0.002, 0.003, 0.003]
+  LOD_2_BATCH_1GPU: [512, 256, 128, 64, 32, 16]
+  LOD_2_BATCH_2GPU: [512, 256, 128, 64, 32, 32, 16]
+  LOD_2_BATCH_4GPU: [512, 256, 128, 64, 32, 32, 32, 32, 16]
+  LOD_2_BATCH_8GPU: [512, 256, 128, 64, 32, 32, 32, 32, 32]
+  REPORT_FREQ: [100, 80, 60, 30, 20, 10, 10, 5, 5]
+  SNAPSHOT_FREQ: [300, 300, 300, 100, 50, 30, 20, 20, 10]
+  TRAIN_EPOCHS: 112
+2025-03-14 21:00:53,288 logger INFO: Trainable parameters generator:
+2025-03-14 21:00:53,288 logger INFO: Trainable parameters discriminator:
+2025-03-14 21:00:53,297 logger INFO: No checkpoint found. Initializing model from scratch
+2025-03-14 21:00:53,297 logger INFO: Starting from epoch: 0
+2025-03-14 21:00:53,532 logger INFO: ################################################################################
+2025-03-14 21:00:53,532 logger INFO: # Switching LOD to 0
+2025-03-14 21:00:53,533 logger INFO: # Starting transition
+2025-03-14 21:00:53,537 logger INFO: ################################################################################
+2025-03-14 21:00:53,538 logger INFO: ################################################################################
+2025-03-14 21:00:53,539 logger INFO: # Transition ended
+2025-03-14 21:00:53,539 logger INFO: ################################################################################
+2025-03-14 21:00:53,540 logger INFO: Batch size: 512, Batch size per GPU: 512, LOD: 0 - 4x4, blend: 1.000, dataset size: 11647
+2025-03-14 21:01:06,247 logger INFO: Saving checkpoint to training_artifacts/cars\model_tmp_lod0.pth
+2025-03-14 21:01:06,275 logger INFO: 
+[1/112] - ptime: 12.70, loss_d: 6.8576756, loss_g: 0.9096989, lae: 1.1997646, blend: 1.000, lr: 0.001500000000,  0.001500000000, max mem: 1017.734375",
+2025-03-14 21:01:06,345 logger INFO: Batch size: 512, Batch size per GPU: 512, LOD: 0 - 4x4, blend: 1.000, dataset size: 11647
