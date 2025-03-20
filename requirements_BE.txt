@@ -1,3 +1,6 @@
+-f https://pypi.org/simple/
+-f https://download.pytorch.org/whl/torch_stable.html
+
 # All versions with respect to Octobery 2019
 setuptools==57.5.0
 wheel==0.37.1
@@ -9,7 +12,6 @@ tqdm == 4.36.1
 dlutils
 bimpy >= 0.1.1
 dareblopy 
--f https://download.pytorch.org/whl/torch_stable.html
 torch==1.8.0+cu111
 torchvision==0.9.0+cu111
 torchaudio==0.8.0
