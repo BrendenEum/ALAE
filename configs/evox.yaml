@@ -4,8 +4,8 @@ NAME: evox
 DATASET:
   PART_COUNT: 1 # how many times to split up the dataset (for parallelizing?)
   SIZE: 11647
-  PATH: data/datasets/evox/evox-r%02d.tfrecords.%03d
-  PATH_TEST: data/datasets/evox-test/evox-test-r%02d.tfrecords.%03d
+  PATH: $SLURM_TMPDIR/evox/evox-r%02d.tfrecords.%03d
+  PATH_TEST: $SLURM_TMPDIR/evox-test/evox-test-r%02d.tfrecords.%03d
   MAX_RESOLUTION_LEVEL: 7
 
   SAMPLES_PATH: no_path #dataset_samples/cars
