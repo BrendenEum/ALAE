@@ -4,7 +4,9 @@
 *.pth
 *.png
 *.tfrecords*
+*.tar
 
+env/
 __pycache__/
 .idea/
 *.pdf
