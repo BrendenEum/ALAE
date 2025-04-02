@@ -1,5 +1,13 @@
+#######################
+# Interactive Debugging
+#######################
+
 # Start an interactive session for debugging
 salloc --account=def-webbr  --time=04:00:00 --gres=gpu:1 --mem=16G --ntasks=1 --cpus-per-task=2
+
+#######################
+# Setting up the compute node
+#######################
 
 # Go to project folder
 # git clone https://github.com/BrendenEum/ALAE
@@ -15,6 +23,10 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:"/cvmfs/soft.computecanada.ca/easybuild/
 # random_device throws an error on cluster, tell it fall back to this pseudo-RNG
 # export CXXFLAGS="-D_GLIBCXX_USE_RANDOM_TR1" 
 
+#######################
+# Setting up the virtual environment
+#######################
+
 # Make and activate venv
 # virtualenv --no-download env
 source env/bin/activate
@@ -26,16 +38,24 @@ unset PYTHONPATH
 # Manually load all the packages. 
 pip install -r requirements.txt
 
+#######################
+# Jobs
+#######################
+
 # Dataset prep
 python -m dataset_preparation.prepare_evox
 
 # Train
 python train_alae.py -c evox
 
-# Check output if you sbatch
-tail -f job-logs train_alae-#.out
+#######################
+# Monitor progress and stress
+#######################
 
-# Separate terminal. Check how much my job is stressing the GPU and CPU.
+# Check output if you sbatch
+tail -f job-logs/train_alae-#.out
+
+# Watch GPU usage (in a separate terminal, ssh into the compute node)
 ssh beum@cedar.alliancecan.ca
 ssh beum@{MACHINE NAME}
-nvidia-smi
+watch -n 1 nvidia-smi
