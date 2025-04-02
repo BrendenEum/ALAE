@@ -343,5 +343,5 @@ def train(cfg, logger, local_rank, world_size, distributed):
 
 if __name__ == "__main__":
     gpu_count = torch.cuda.device_count()
-    run(train, get_cfg_defaults(), description='StyleGAN', default_config='configs/ffhq.yaml',
+    run(train, get_cfg_defaults(), description='StyleGAN', default_config='configs/evox.yaml',
         world_size=gpu_count)
