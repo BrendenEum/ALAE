@@ -1,5 +1,5 @@
 # Start an interactive session for debugging
-salloc --account=def-webbr --gres=gpu:1 --cpus-per-task=1 --mem=32000M --time=03:00:00
+salloc --account=def-webbr  --time=04:00:00 --gres=gpu:1 --mem=16G --ntasks=1 --cpus-per-task=2
 
 # Go to project folder
 # git clone https://github.com/BrendenEum/ALAE
