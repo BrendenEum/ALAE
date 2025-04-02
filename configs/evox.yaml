@@ -3,7 +3,7 @@
 NAME: evox
 DATASET:
   PART_COUNT: 1 # how many times to split up the dataset (for parallelizing?)
-  SIZE: 11647
+  SIZE: 11664
   PATH: /home/beum/projects/def-webbr/beum/ALAE/data/datasets/evox/evox-r%02d.tfrecords.%03d
   PATH_TEST: /home/beum/projects/def-webbr/beum/ALAE/data/datasets/evox-test/evox-test-r%02d.tfrecords.%03d
   MAX_RESOLUTION_LEVEL: 6
