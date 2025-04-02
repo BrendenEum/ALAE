@@ -49,15 +49,15 @@ def prepare_evox(cfg, logger, train=True):
             img_path = os.path.join(image_folder, img_file)
             try:
                 image = Image.open(img_path).convert('L')  # Convert to grayscale
-                image_resized = resize_image(image, size=128)  # Resize to max resolution (2^7)
-                image_resized = np.expand_dims(image_resized, axis=0)  # Ensure (1, 128, 128)
+                image_resized = resize_image(image, size=cfg.DATASET.MAX_RESOLUTION_LEVEL)  # Resize to max resolution 
+                image_resized = np.expand_dims(image_resized, axis=0)  # Ensure (1, MAX_RESOLUTION_LEVEL, MAX_RESOLUTION_LEVEL)
                 images.append((img_file, image_resized))  # Store (filename, image)
             except Exception as e:
                 print(f"Skipping image {img_file} due to error: {e}")
 
         # Write high-res images to TFRecords
         tfr_opt = tf.io.TFRecordOptions(compression_type="")
-        part_path = cfg.DATASET.PATH % (7, i) if train else cfg.DATASET.PATH_TEST % (7, i)
+        part_path = cfg.DATASET.PATH % (cfg.DATASET.MAX_RESOLUTION_LEVEL, i) if train else cfg.DATASET.PATH_TEST % (cfg.DATASET.MAX_RESOLUTION_LEVEL, i)
         tfr_writer = tf.io.TFRecordWriter(part_path, tfr_opt)
 
         for img_file, image in images:
