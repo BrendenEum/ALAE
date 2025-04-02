@@ -25,12 +25,12 @@ _C.OUTPUT_DIR = "results"
 _C.DATASET = CN()
 _C.DATASET.PATH = 'celeba/data_fold_%d_lod_%d.pkl'
 _C.DATASET.PATH_TEST = ''
-_C.DATASET.FFHQ_SOURCE = '/data/datasets/ffhq-dataset/tfrecords/ffhq/ffhq-r%02d.tfrecords'
+_C.DATASET.FFHQ_SOURCE = '/home/beum/projects/def-webbr/beum/ALAE/data/datasets/evox_64x64_1/evox_64x64_1-r%02d.tfrecords.%03d'
 _C.DATASET.PART_COUNT = 1
 _C.DATASET.PART_COUNT_TEST = 1
 _C.DATASET.SIZE = 70000
 _C.DATASET.SIZE_TEST = 10000
-_C.DATASET.FLIP_IMAGES = True
+_C.DATASET.FLIP_IMAGES = False #originally true
 _C.DATASET.SAMPLES_PATH = 'dataset_samples/faces/realign128x128'
 
 _C.DATASET.STYLE_MIX_PATH = 'style_mixing/test_images/set_celeba/'

@@ -31,6 +31,9 @@ python -m dataset_preparation.prepare_evox
 # Train
 python train_alae.py -c evox
 
+# Check output if you sbatch
+tail -f job-logs train_alae-#.out
+
 # Separate terminal. Check how much my job is stressing the GPU and CPU.
 ssh beum@cedar.alliancecan.ca
 ssh beum@{MACHINE NAME}
