@@ -1,0 +1,189 @@
+2025-04-02 14:11:22,706 logger INFO: Namespace(config_file='evox', opts=[])
+2025-04-02 14:11:22,707 logger INFO: World size: 1
+2025-04-02 14:11:22,707 logger INFO: Loaded configuration file configs/evox.yaml
+2025-04-02 14:11:22,708 logger INFO: 
+ # Config for training ALAE on evox at resolution 256x256
+
+NAME: evox
+DATASET:
+  PART_COUNT: 1 # how many times to split up the dataset (for parallelizing?)
+  SIZE: 11664
+  PATH: /home/beum/scratch/ALAE/data/datasets/evox_64x64_1/evox_64x64_1-r%02d.tfrecords.%03d
+  PATH_TEST: /home/beum/scratch/ALAE/data/datasets/evox-test_64x64_1/evox-test_64x64_1-r%02d.tfrecords.%03d
+  MAX_RESOLUTION_LEVEL: 7
+
+  SAMPLES_PATH: no_path #dataset_samples/cars
+  STYLE_MIX_PATH: style_mixing/test_images/set_cars
+MODEL:
+  LATENT_SPACE_SIZE: 512
+  LAYER_COUNT: 7
+  MAX_CHANNEL_COUNT: 512
+  START_CHANNEL_COUNT: 32
+  DLATENT_AVG_BETA: 0.995
+  MAPPING_LAYERS: 8
+  CHANNELS: 1 #greyscale
+OUTPUT_DIR: training_artifacts/cars
+TRAIN:
+  BASE_LEARNING_RATE: 0.002
+  EPOCHS_PER_LOD: 2
+  LEARNING_DECAY_RATE: 0.1
+  LEARNING_DECAY_STEPS: []
+  TRAIN_EPOCHS: 112
+  #                    4    8   16    32    64    128
+  LOD_2_BATCH_8GPU: [512, 256, 128, 64, 32, 32, 32, 32, 32]
+  LOD_2_BATCH_4GPU: [512, 256, 128, 64, 32, 32, 32, 32, 16]
+  LOD_2_BATCH_2GPU: [512, 256, 128, 64, 32, 32, 16]
+  LOD_2_BATCH_1GPU: [512, 256, 128, 64, 32, 16]
+
+  LEARNING_RATES: [.0015, .0015, .0015, .0015, .0015, .0015, .002, .003, .003]
+
+2025-04-02 14:11:22,708 logger INFO: Running with config:
+DATASET:
+  FFHQ_SOURCE: /home/beum/projects/def-webbr/beum/ALAE/data/datasets/evox_64x64_1/evox_64x64_1-r%02d.tfrecords.%03d
+  FLIP_IMAGES: False
+  MAX_RESOLUTION_LEVEL: 7
+  PART_COUNT: 1
+  PART_COUNT_TEST: 1
+  PATH: /home/beum/scratch/ALAE/data/datasets/evox_64x64_1/evox_64x64_1-r%02d.tfrecords.%03d
+  PATH_TEST: /home/beum/scratch/ALAE/data/datasets/evox-test_64x64_1/evox-test_64x64_1-r%02d.tfrecords.%03d
+  SAMPLES_PATH: no_path
+  SIZE: 11664
+  SIZE_TEST: 10000
+  STYLE_MIX_PATH: style_mixing/test_images/set_cars
+MODEL:
+  CHANNELS: 1
+  DLATENT_AVG_BETA: 0.995
+  ENCODER: EncoderDefault
+  GENERATOR: GeneratorDefault
+  LATENT_SPACE_SIZE: 512
+  LAYER_COUNT: 7
+  MAPPING_D: MappingD
+  MAPPING_F: MappingF
+  MAPPING_LAYERS: 8
+  MAX_CHANNEL_COUNT: 512
+  START_CHANNEL_COUNT: 32
+  STYLE_MIXING_PROB: 0.9
+  TRUNCATIOM_CUTOFF: 8
+  TRUNCATIOM_PSI: 0.7
+  Z_REGRESSION: False
+NAME: evox
+OUTPUT_DIR: training_artifacts/cars
+PPL_CELEBA_ADJUSTMENT: False
+TRAIN:
+  ADAM_BETA_0: 0.0
+  ADAM_BETA_1: 0.99
+  BASE_LEARNING_RATE: 0.002
+  EPOCHS_PER_LOD: 2
+  LEARNING_DECAY_RATE: 0.1
+  LEARNING_DECAY_STEPS: []
+  LEARNING_RATES: [0.0015, 0.0015, 0.0015, 0.0015, 0.0015, 0.0015, 0.002, 0.003, 0.003]
+  LOD_2_BATCH_1GPU: [512, 256, 128, 64, 32, 16]
+  LOD_2_BATCH_2GPU: [512, 256, 128, 64, 32, 32, 16]
+  LOD_2_BATCH_4GPU: [512, 256, 128, 64, 32, 32, 32, 32, 16]
+  LOD_2_BATCH_8GPU: [512, 256, 128, 64, 32, 32, 32, 32, 32]
+  REPORT_FREQ: [100, 80, 60, 30, 20, 10, 10, 5, 5]
+  SNAPSHOT_FREQ: [300, 300, 300, 100, 50, 30, 20, 20, 10]
+  TRAIN_EPOCHS: 112
+2025-04-02 14:11:52,698 logger INFO: Trainable parameters generator:
+2025-04-02 14:11:52,702 logger INFO: Trainable parameters discriminator:
+2025-04-02 14:11:52,712 logger INFO: No checkpoint found. Initializing model from scratch
+2025-04-02 14:11:52,712 logger INFO: Starting from epoch: 0
+2025-04-02 14:11:53,751 logger INFO: ################################################################################
+2025-04-02 14:11:53,756 logger INFO: # Switching LOD to 0
+2025-04-02 14:11:53,756 logger INFO: # Starting transition
+2025-04-02 14:11:53,756 logger INFO: ################################################################################
+2025-04-02 14:11:53,757 logger INFO: ################################################################################
+2025-04-02 14:11:53,757 logger INFO: # Transition ended
+2025-04-02 14:11:53,757 logger INFO: ################################################################################
+2025-04-02 14:11:53,758 logger INFO: Batch size: 512, Batch size per GPU: 512, LOD: 0 - 4x4, blend: 1.000, dataset size: 11664
+2025-04-02 14:12:05,526 logger INFO: Saving checkpoint to training_artifacts/cars/model_tmp_lod0.pth
+2025-04-02 14:12:05,922 logger INFO: 
+[1/112] - ptime: 11.74, loss_d: 6.0094972, loss_g: 0.9066291, lae: 1.5209861, blend: 1.000, lr: 0.001500000000,  0.001500000000, max mem: 1018.734375",
+2025-04-02 14:12:05,939 logger INFO: Batch size: 512, Batch size per GPU: 512, LOD: 0 - 4x4, blend: 1.000, dataset size: 11664
+2025-04-02 14:12:14,499 logger INFO: Saving checkpoint to training_artifacts/cars/model_tmp_lod0.pth
+2025-04-02 14:12:14,500 logger INFO: 
+[2/112] - ptime: 8.51, loss_d: 3.5048933, loss_g: 0.8330316, lae: 1.4896485, blend: 1.000, lr: 0.001500000000,  0.001500000000, max mem: 1018.744141",
+2025-04-02 14:12:14,509 logger INFO: ################################################################################
+2025-04-02 14:12:14,509 logger INFO: # Switching LOD to 1
+2025-04-02 14:12:14,509 logger INFO: # Starting transition
+2025-04-02 14:12:14,509 logger INFO: ################################################################################
+2025-04-02 14:12:14,509 logger INFO: Batch size: 256, Batch size per GPU: 256, LOD: 1 - 8x8, blend: 0.000, dataset size: 11664
+2025-04-02 14:12:41,727 logger INFO: Saving checkpoint to training_artifacts/cars/model_tmp_lod1.pth
+2025-04-02 14:12:41,728 logger INFO: 
+[3/112] - ptime: 27.21, loss_d: 6.4203205, loss_g: 1.8841509, lae: 1.4374450, blend: 1.000, lr: 0.001500000000,  0.001500000000, max mem: 2128.128418",
+2025-04-02 14:12:41,807 logger INFO: ################################################################################
+2025-04-02 14:12:41,807 logger INFO: # Transition ended
+2025-04-02 14:12:41,807 logger INFO: ################################################################################
+2025-04-02 14:12:41,808 logger INFO: Batch size: 256, Batch size per GPU: 256, LOD: 1 - 8x8, blend: 1.000, dataset size: 11664
+2025-04-02 14:13:08,593 logger INFO: Saving checkpoint to training_artifacts/cars/model_tmp_lod1.pth
+2025-04-02 14:13:08,594 logger INFO: 
+[4/112] - ptime: 26.78, loss_d: 5.1169620, loss_g: 2.2768114, lae: 1.0206894, blend: 1.000, lr: 0.001500000000,  0.001500000000, max mem: 2128.128418",
+2025-04-02 14:13:08,631 logger INFO: ################################################################################
+2025-04-02 14:13:08,632 logger INFO: # Switching LOD to 2
+2025-04-02 14:13:08,632 logger INFO: # Starting transition
+2025-04-02 14:13:08,632 logger INFO: ################################################################################
+2025-04-02 14:13:08,632 logger INFO: Batch size: 128, Batch size per GPU: 128, LOD: 2 - 16x16, blend: 0.000, dataset size: 11664
+2025-04-02 14:14:39,432 logger INFO: Saving checkpoint to training_artifacts/cars/model_tmp_lod2.pth
+2025-04-02 14:14:39,433 logger INFO: 
+[5/112] - ptime: 90.80, loss_d: 5.4773273, loss_g: 2.9852393, lae: 0.8402724, blend: 1.000, lr: 0.001500000000,  0.001500000000, max mem: 4836.627930",
+2025-04-02 14:14:39,557 logger INFO: ################################################################################
+2025-04-02 14:14:39,557 logger INFO: # Transition ended
+2025-04-02 14:14:39,557 logger INFO: ################################################################################
+2025-04-02 14:14:39,557 logger INFO: Batch size: 128, Batch size per GPU: 128, LOD: 2 - 16x16, blend: 1.000, dataset size: 11664
+2025-04-02 14:16:09,532 logger INFO: Saving checkpoint to training_artifacts/cars/model_tmp_lod2.pth
+2025-04-02 14:16:09,533 logger INFO: 
+[6/112] - ptime: 89.97, loss_d: 3.8553648, loss_g: 2.3299892, lae: 0.6738302, blend: 1.000, lr: 0.001500000000,  0.001500000000, max mem: 4836.627930",
+2025-04-02 14:16:09,640 logger INFO: ################################################################################
+2025-04-02 14:16:09,640 logger INFO: # Switching LOD to 3
+2025-04-02 14:16:09,641 logger INFO: # Starting transition
+2025-04-02 14:16:09,641 logger INFO: ################################################################################
+2025-04-02 14:16:09,641 logger INFO: Batch size: 64, Batch size per GPU: 64, LOD: 3 - 32x32, blend: 0.000, dataset size: 11664
+2025-04-02 14:20:13,757 logger INFO: Saving checkpoint to training_artifacts/cars/model_tmp_lod3.pth
+2025-04-02 14:20:13,759 logger INFO: 
+[7/112] - ptime: 244.11, loss_d: 3.0736852, loss_g: 1.8992418, lae: 0.7208357, blend: 1.000, lr: 0.001500000000,  0.001500000000, max mem: 7563.382324",
+2025-04-02 14:20:13,889 logger INFO: ################################################################################
+2025-04-02 14:20:13,889 logger INFO: # Transition ended
+2025-04-02 14:20:13,890 logger INFO: ################################################################################
+2025-04-02 14:20:13,890 logger INFO: Batch size: 64, Batch size per GPU: 64, LOD: 3 - 32x32, blend: 1.000, dataset size: 11664
+2025-04-02 14:24:14,346 logger INFO: Saving checkpoint to training_artifacts/cars/model_tmp_lod3.pth
+2025-04-02 14:24:14,347 logger INFO: 
+[8/112] - ptime: 240.45, loss_d: 2.0057647, loss_g: 1.2864732, lae: 0.7015391, blend: 1.000, lr: 0.001500000000,  0.001500000000, max mem: 7563.382324",
+2025-04-02 14:24:14,375 logger INFO: ################################################################################
+2025-04-02 14:24:14,376 logger INFO: # Switching LOD to 4
+2025-04-02 14:24:14,376 logger INFO: # Starting transition
+2025-04-02 14:24:14,377 logger INFO: ################################################################################
+2025-04-02 14:24:14,377 logger INFO: Batch size: 32, Batch size per GPU: 32, LOD: 4 - 64x64, blend: 0.000, dataset size: 11664
+2025-04-02 14:32:48,323 logger INFO: Saving checkpoint to training_artifacts/cars/model_tmp_lod4.pth
+2025-04-02 14:32:48,325 logger INFO: 
+[9/112] - ptime: 513.94, loss_d: 1.6289734, loss_g: 1.1372133, lae: 0.7715685, blend: 1.000, lr: 0.001500000000,  0.001500000000, max mem: 7563.382324",
+2025-04-02 14:32:48,545 logger INFO: ################################################################################
+2025-04-02 14:32:48,545 logger INFO: # Transition ended
+2025-04-02 14:32:48,546 logger INFO: ################################################################################
+2025-04-02 14:32:48,546 logger INFO: Batch size: 32, Batch size per GPU: 32, LOD: 4 - 64x64, blend: 1.000, dataset size: 11664
+2025-04-02 14:41:08,762 logger INFO: Saving checkpoint to training_artifacts/cars/model_tmp_lod4.pth
+2025-04-02 14:41:08,763 logger INFO: 
+[10/112] - ptime: 500.21, loss_d: 1.3797383, loss_g: 1.0573515, lae: 0.7221857, blend: 1.000, lr: 0.001500000000,  0.001500000000, max mem: 7563.382324",
+2025-04-02 14:41:08,789 logger INFO: ################################################################################
+2025-04-02 14:41:08,790 logger INFO: # Switching LOD to 5
+2025-04-02 14:41:08,790 logger INFO: # Starting transition
+2025-04-02 14:41:08,791 logger INFO: ################################################################################
+2025-04-02 14:41:08,791 logger INFO: Batch size: 16, Batch size per GPU: 16, LOD: 5 - 128x128, blend: 0.000, dataset size: 11664
+2025-04-02 14:56:53,520 logger INFO: 
+[11/112] - ptime: 944.73, loss_d: 1.3474711, loss_g: 1.1740059, lae: 0.7516816, blend: 0.951, lr: 0.001500000000,  0.001500000000, max mem: 7563.382324",
+2025-04-02 14:59:29,522 logger INFO: Saving checkpoint to training_artifacts/cars/model_tmp_lod5.pth
+2025-04-02 14:59:29,523 logger INFO: 
+[11/112] - ptime: 1100.73, loss_d: 1.3426234, loss_g: 1.1188105, lae: 0.7689102, blend: 1.000, lr: 0.001500000000,  0.001500000000, max mem: 7563.382324",
+2025-04-02 14:59:29,728 logger INFO: ################################################################################
+2025-04-02 14:59:29,728 logger INFO: # Transition ended
+2025-04-02 14:59:29,728 logger INFO: ################################################################################
+2025-04-02 14:59:29,728 logger INFO: Batch size: 16, Batch size per GPU: 16, LOD: 5 - 128x128, blend: 1.000, dataset size: 11664
+2025-04-02 15:14:50,945 logger INFO: 
+[12/112] - ptime: 921.22, loss_d: 1.3300159, loss_g: 1.1632791, lae: 0.7178153, blend: 1.000, lr: 0.001500000000,  0.001500000000, max mem: 7563.382324",
+2025-04-02 15:17:24,722 logger INFO: Saving checkpoint to training_artifacts/cars/model_tmp_lod5.pth
+2025-04-02 15:17:24,724 logger INFO: 
+[12/112] - ptime: 1074.99, loss_d: 1.3035591, loss_g: 1.1403747, lae: 0.6659927, blend: 1.000, lr: 0.001500000000,  0.001500000000, max mem: 7563.382324",
+2025-04-02 15:17:24,755 logger INFO: ################################################################################
+2025-04-02 15:17:24,756 logger INFO: # Switching LOD to 6
+2025-04-02 15:17:24,756 logger INFO: # Starting transition
+2025-04-02 15:17:24,756 logger INFO: ################################################################################
+2025-04-02 15:17:24,756 logger INFO: Batch size: 16, Batch size per GPU: 16, LOD: 6 - 256x256, blend: 0.000, dataset size: 11664

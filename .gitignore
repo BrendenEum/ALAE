@@ -5,6 +5,7 @@
 *.png
 *.tfrecords*
 *.tar
+training_artifacts/cars/last_checkpoint
 
 env/
 __pycache__/
