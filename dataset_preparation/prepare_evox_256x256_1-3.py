@@ -49,7 +49,7 @@ def prepare_evox(cfg, logger, train=True):
             img_path = os.path.join(image_folder, img_file)
             try:
                 image = Image.open(img_path).convert('L')  # Convert to grayscale
-                image_resized = resize_image(image, size=cfg.DATASET.MAX_RESOLUTION_LEVEL)  # Resize to max resolution 
+                image_resized = resize_image(image, size=(2**cfg.DATASET.MAX_RESOLUTION_LEVEL))  # Resize to max resolution 
                 image_resized = np.expand_dims(image_resized, axis=0)  # Ensure (1, MAX_RESOLUTION_LEVEL, MAX_RESOLUTION_LEVEL)
                 images.append((img_file, image_resized))  # Store (filename, image)
             except Exception as e:
@@ -82,9 +82,10 @@ def prepare_evox(cfg, logger, train=True):
 
                 # Downscale using average pooling
                 image_down = F.avg_pool2d(image_tensor, 2, 2).clamp_(0, 255).to(torch.uint8) # downscales using 2x2 blocks
-                _, _, h_new, w_new = image_down.shape # get the new shape
-                print("Downscaling. Height: ", h_new, " | Width: ", w_new)
-                image_down = image_down.view(cfg.MODEL.CHANNELS, h_new, w_new).numpy() # convert to numpy array
+                image_down = image_down.view(cfg.MODEL.CHANNELS, h // 2, w // 2).numpy()
+                #_, _, h_new, w_new = image_down.shape # get the new shape
+                #print("Downscaling. Height: ", h_new, " | Width: ", w_new)
+                #image_down = image_down.view(cfg.MODEL.CHANNELS, h_new, w_new).numpy() # convert to numpy array
 
                 images_down.append((img_file, image_down))
 
