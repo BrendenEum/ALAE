@@ -72,8 +72,8 @@ def prepare_evox(cfg, logger, train=True):
         tfr_writer.close()
         print(f"Fold {i+1} saved at max resolution to {part_path}")
 
-        # ✅ **Save Lower Resolution Versions**
-        upper_bound = cfg.DATASET.MAX_RESOLUTION_LEVEL - 1
+        # **Save Lower Resolution Versions**
+        upper_bound = cfg.DATASET.MAX_RESOLUTION_LEVEL 
         for res_power in range(upper_bound, 1, -1):  # Loop for 2^6 (64x64) → 2^2 (4x4)
             images_down = []
             for img_file, image in tqdm.tqdm(images, desc=f"Downscaling fold {i+1} to {2**res_power}x{2**res_power}"):
@@ -82,7 +82,7 @@ def prepare_evox(cfg, logger, train=True):
 
                 # Downscale using average pooling
                 image_down = F.avg_pool2d(image_tensor, 2, 2).clamp_(0, 255).to(torch.uint8)
-                image_down = image_down.view(cfg.MODEL.CHANNELS, h // 2, w // 2).numpy()
+                image_down = image_down.view(cfg.MODEL.CHANNELS, 2**res_power, 2**res_power).numpy() #image_down = image_down.view(cfg.MODEL.CHANNELS, h // 2, w // 2).numpy()
 
                 images_down.append((img_file, image_down))
 

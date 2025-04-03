@@ -3,7 +3,7 @@
 #######################
 
 # Start an interactive session for debugging
-salloc --account=def-webbr  --time=04:00:00 --gres=gpu:1 --mem=16G --ntasks=1 --cpus-per-task=2
+salloc --account=def-webbr  --time=00:59:00 --gres=gpu:1 --mem=16G --ntasks=1 --cpus-per-task=2
 
 #######################
 # Setting up the compute node
@@ -43,7 +43,7 @@ pip install -r requirements.txt
 #######################
 
 # Dataset prep
-python -m dataset_preparation.prepare_evox
+python -m dataset_preparation.prepare_evox_256x256_1-3
 
 # Train
 python train_alae.py -c evox
