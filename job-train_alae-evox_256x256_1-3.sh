@@ -1,8 +1,8 @@
 #!/bin/bash
 #SBATCH --account=def-webbr
-#SBATCH --time=0-08:00:00 # DD-HH:MM:SS
+#SBATCH --time=0-12:00:00 # DD-HH:MM:SS
 #SBATCH --cpus-per-task=2
-#SBATCH --gres=gpu:p100:1
+#SBATCH --gres=gpu:v100:1
 #SBATCH --mem=32000M
 #SBATCH --output=job-logs/train_alae-%j.out
 
@@ -19,4 +19,4 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:"/cvmfs/soft.computecanada.ca/easybuild/
 source env/bin/activate
 
 # Train
-python train_alae.py -c evox_64x64_1-5
+python train_alae.py -c evox_256x256_1-3
