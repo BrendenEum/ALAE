@@ -72,6 +72,8 @@ class TFRecordsDataset:
         self.current_filenames = []
 
     def reset(self, lod, batch_size):
+        print("Requested LOD:", lod)
+        print("Available LODs:", self.filenames.keys())
         assert lod in self.filenames.keys()
         self.current_filenames = self.filenames[lod]
         self.batch_size = batch_size
