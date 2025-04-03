@@ -83,9 +83,6 @@ def prepare_evox(cfg, logger, train=True):
                 # Downscale using average pooling
                 image_down = F.avg_pool2d(image_tensor, 2, 2).clamp_(0, 255).to(torch.uint8) # downscales using 2x2 blocks
                 image_down = image_down.view(cfg.MODEL.CHANNELS, h // 2, w // 2).numpy()
-                #_, _, h_new, w_new = image_down.shape # get the new shape
-                #print("Downscaling. Height: ", h_new, " | Width: ", w_new)
-                #image_down = image_down.view(cfg.MODEL.CHANNELS, h_new, w_new).numpy() # convert to numpy array
 
                 images_down.append((img_file, image_down))
 
