@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --account=def-webbr
-#SBATCH --time=0-05:00:00 # DD-HH:MM:SS
+#SBATCH --time=0-08:00:00 # DD-HH:MM:SS
 #SBATCH --cpus-per-task=2
 #SBATCH --gres=gpu:v100l:1
 #SBATCH --mem=16000M
