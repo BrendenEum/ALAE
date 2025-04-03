@@ -59,8 +59,7 @@ class TFRecordsDataset:
         else:
             path = cfg.DATASET.PATH_TEST
 
-        #for r in range(2, cfg.DATASET.MAX_RESOLUTION_LEVEL + 1):
-        for r in range(1, cfg.DATASET.MAX_RESOLUTION_LEVEL):
+        for r in range(2, cfg.DATASET.MAX_RESOLUTION_LEVEL + 1):
             files = []
             for i in range(self.part_count_local * rank, self.part_count_local * (rank + 1)):
                 file = path % (r, i)
