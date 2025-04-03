@@ -2,7 +2,7 @@
 #SBATCH --account=def-webbr
 #SBATCH --time=0-05:00:00 # DD-HH:MM:SS
 #SBATCH --cpus-per-task=2
-#SBATCH --gres=gpu:p100:1
+#SBATCH --gres=gpu:p100l:1
 #SBATCH --mem=16000M
 #SBATCH --output=job-logs/train_alae-%j.out
 
