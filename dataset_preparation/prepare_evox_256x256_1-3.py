@@ -73,7 +73,7 @@ def prepare_evox(cfg, logger, train=True):
         print(f"Fold {i+1} saved at max resolution to {part_path}")
 
         # **Save Lower Resolution Versions**
-        upper_bound = cfg.DATASET.MAX_RESOLUTION_LEVEL 
+        upper_bound = cfg.DATASET.MAX_RESOLUTION_LEVEL - 1 # this is max-1 because this loop is only for downscaled images
         for res_power in range(upper_bound, 1, -1):  # Loop for 2^6 (64x64) → 2^2 (4x4)
             images_down = []
             for img_file, image in tqdm.tqdm(images, desc=f"Downscaling fold {i+1} to {2**res_power}x{2**res_power}"):
