@@ -19,4 +19,4 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:"/cvmfs/soft.computecanada.ca/easybuild/
 source env/bin/activate
 
 # Train
-python train_alae.py -c evox
+python train_alae.py -c evox_256x256_1-3
