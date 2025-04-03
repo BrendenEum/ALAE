@@ -43,10 +43,10 @@ pip install -r requirements.txt
 #######################
 
 # Dataset prep
-python -m dataset_preparation.prepare_evox_256x256_1-3
+python -m dataset_preparation.prepare_evox_64x64_1-5
 
 # Train
-python train_alae.py -c evox_256x256_1-3
+python train_alae.py -c evox_64x64_1-5
 
 #######################
 # Monitor progress and stress
